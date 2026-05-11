@@ -52,6 +52,54 @@ def ranked_lexicon_words(entries: Sequence[LexiconWord], rank_by: str) -> list[L
     return sorted(entries, key=lambda entry: entry.word)
 
 
+def focus_balanced_sample(
+    entries: Sequence[LexiconWord],
+    *,
+    prefer: str,
+    limit: int,
+    focus_letters: str | None = None,
+    contains_letters: str | None = None,
+) -> list[LexiconWord]:
+    """Return a small sample, balancing focus-letter exposure when rhythm is preferred."""
+
+    ranked = ranked_lexicon_words(entries, prefer)
+    if limit <= 0 or prefer != "rhythmic-diverse":
+        return ranked[:limit]
+
+    target_letters = set((focus_letters or "") + (contains_letters or ""))
+    if len(target_letters) <= 1:
+        return ranked[:limit]
+
+    remaining = list(ranked)
+    sampled: list[LexiconWord] = []
+    coverage: Counter[str] = Counter()
+
+    while remaining and len(sampled) < limit:
+        minimum_seen = min(coverage.get(letter, 0) for letter in target_letters)
+        most_needed = {letter for letter in target_letters if coverage.get(letter, 0) == minimum_seen}
+
+        def sample_key(entry: LexiconWord) -> tuple[int, int, float, int, int, str]:
+            entry_focus = set(entry.letters) & target_letters
+            needed_gain = len(entry_focus & most_needed)
+            total_gain = len(entry_focus)
+            return (
+                -needed_gain,
+                -total_gain,
+                -entry.rhythm_diversity,
+                -entry.transitions,
+                -(entry.dit_count + entry.dah_count),
+                entry.word,
+            )
+
+        selected = min(remaining, key=sample_key)
+        remaining.remove(selected)
+        sampled.append(selected)
+        for letter in set(selected.letters) & target_letters:
+            coverage[letter] += 1
+
+    return sampled
+
+
 def add_word_list_arguments(parser: argparse.ArgumentParser) -> None:
     """Add the original plain word-list generator arguments."""
 
@@ -249,7 +297,10 @@ def build_lexicon_parser() -> argparse.ArgumentParser:
         "--prefer",
         choices=("word", "frequency", "rhythmic-diverse"),
         default="rhythmic-diverse",
-        help="Preference used to rank the sample. Defaults to rhythmic-diverse.",
+        help=(
+            "Preference used to rank the sample. Defaults to rhythmic-diverse; when multiple focus "
+            "letters are supplied, rhythmic-diverse also balances exposure across those letters."
+        ),
     )
     sample_parser.add_argument(
         "--limit",
@@ -398,7 +449,13 @@ def run_lexicon_command(argv: Sequence[str]) -> int:
             require_all_contains=args.contains_all,
             tag=args.tag,
         )
-        ranked = ranked_lexicon_words(selected, args.prefer)[: args.limit]
+        ranked = focus_balanced_sample(
+            selected,
+            prefer=args.prefer,
+            limit=args.limit,
+            focus_letters=args.focus,
+            contains_letters=args.contains,
+        )
 
         print(f"Lexicon: {args.lexicon}")
         if args.known:

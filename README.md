@@ -189,14 +189,14 @@ The `sample` command is the learner-facing complement to `count`. It returns a s
 nltk-3-4-5 sample --focus kmu --prefer rhythmic-diverse
 ```
 
-The `rhythmic-diverse` preference favours words with higher `rhythm_diversity`, while still keeping frequency as a tie-breaker. This is useful for early context streams because the learner can hear varied Morse shapes before the full word is copyable from known characters alone.
+The `rhythmic-diverse` preference favours words with higher `rhythm_diversity`, stronger dit/dah transitions, and richer total Morse shape. When more than one focus or contains letter is supplied, the sampler also balances exposure across those requested characters. This prevents a high-scoring character such as `k` from dominating the whole sample when the intended stream is `k`, `m`, and `u` together.
 
 | Option | Meaning |
 |---|---|
 | `--focus kmu` | Match words containing at least one of `k`, `m`, or `u`. |
 | `--contains kmu --contains-all` | Match words containing all supplied characters. |
 | `--known kmures` | Optionally restrict the sample to words made only from known letters. |
-| `--prefer rhythmic-diverse` | Rank by rhythm-rich Morse shape first, then by frequency. |
+| `--prefer rhythmic-diverse` | Prefer rhythm-rich Morse shapes while balancing exposure across multiple focus or contains letters. |
 | `--limit 20` | Control the number of sample words printed. |
 
 For example, `mud` is exported and displayed with both its Morse and rhythm signature:
@@ -205,7 +205,7 @@ For example, `mud` is exported and displayed with both its Morse and rhythm sign
 mud: -- ..- -.. | DD_IID_DII | rhythm=0.72
 ```
 
-This creates the missing **context stream** layer: Koch and Farnsworth still control character order and timing, while the lexicon can now choose words that provide a strong rhythmic imprint for the current focus set.
+This creates the missing **context stream** layer: Koch and Farnsworth still control character order and timing, while the lexicon can now choose words that provide a strong rhythmic imprint for the current focus set. In practice, `sample --focus kmu --prefer rhythmic-diverse` is not just “top twelve rhythm scores”; it tries to surface `k`, `m`, and `u` across the returned teaching set so the student receives a broader early imprint.
 
 ## Preview selectable words
 

@@ -459,3 +459,84 @@ def test_sample_command_prefers_rhythmic_diverse_words(tmp_path, capsys) -> None
     assert "Sample words: 2" in output
     assert "mud: -- ..- -.. | DD_IID_DII" in output
     assert "rhythm=" in output
+
+
+def test_sample_command_balances_multiple_focus_letters_when_rhythmic(tmp_path, capsys) -> None:
+    path = tmp_path / "context_lexicon.json"
+    write_json_asset(
+        lexicon_to_json(
+            [
+                lexicon_word(
+                    word="ark",
+                    tags=("travel",),
+                    frequency=5,
+                    frequency_rank=100,
+                    commonness="common",
+                    domain_scores={"travel": 1.0},
+                ),
+                lexicon_word(
+                    word="neck",
+                    tags=("body",),
+                    frequency=5,
+                    frequency_rank=110,
+                    commonness="common",
+                    domain_scores={"body": 1.0},
+                ),
+                lexicon_word(
+                    word="tick",
+                    tags=("nature",),
+                    frequency=5,
+                    frequency_rank=120,
+                    commonness="common",
+                    domain_scores={"nature": 1.0},
+                ),
+                lexicon_word(
+                    word="tuck",
+                    tags=("home",),
+                    frequency=4,
+                    frequency_rank=200,
+                    commonness="common",
+                    domain_scores={"home": 1.0},
+                ),
+                lexicon_word(
+                    word="emu",
+                    tags=("animals",),
+                    frequency=3,
+                    frequency_rank=300,
+                    commonness="common",
+                    domain_scores={"animals": 1.0},
+                ),
+                lexicon_word(
+                    word="milk",
+                    tags=("food",),
+                    frequency=3,
+                    frequency_rank=400,
+                    commonness="common",
+                    domain_scores={"food": 1.0},
+                ),
+            ]
+        ),
+        path,
+    )
+
+    exit_code = main(
+        [
+            "sample",
+            "--focus",
+            "kmu",
+            "--prefer",
+            "rhythmic-diverse",
+            "--limit",
+            "3",
+            "--lexicon",
+            str(path),
+        ]
+    )
+
+    output = capsys.readouterr().out
+    assert exit_code == 0
+    assert "Sample words: 3" in output
+    assert "tuck:" in output
+    assert "emu:" in output
+    assert "milk:" in output
+    assert "ark:" not in output
