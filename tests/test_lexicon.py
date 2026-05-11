@@ -2,13 +2,16 @@ from __future__ import annotations
 
 import json
 
+from nltk_3_4_5.cli import main
 from nltk_3_4_5.lexicon import (
     DomainDefinition,
     LexiconWord,
     audit_domains,
     audit_to_json,
     commonness_for_rank,
+    lexicon_entries_from_json,
     lexicon_to_json,
+    read_lexicon_asset,
     selectable_words,
     write_json_asset,
 )
@@ -116,3 +119,115 @@ def test_lexicon_json_and_audit_json_are_serialisable(tmp_path) -> None:
     assert loaded["schema_version"] == 1
     assert loaded["words"][0]["word"] == "ship"
     assert audit_to_json([])["domains"] == []
+
+
+def test_lexicon_entries_from_json_rebuilds_word_records() -> None:
+    data = {
+        "words": [
+            {
+                "word": "cat",
+                "length": 3,
+                "letters": ["a", "c", "t"],
+                "tags": ["animals"],
+                "frequency": 4,
+                "frequency_rank": 200,
+                "commonness": "common",
+                "domain_scores": {"animals": 1.0},
+            }
+        ]
+    }
+
+    entries = lexicon_entries_from_json(data)
+
+    assert entries == [
+        LexiconWord(
+            word="cat",
+            length=3,
+            letters=("a", "c", "t"),
+            tags=("animals",),
+            frequency=4,
+            frequency_rank=200,
+            commonness="common",
+            domain_scores={"animals": 1.0},
+        )
+    ]
+
+
+def test_read_lexicon_asset_loads_context_lexicon_json(tmp_path) -> None:
+    path = tmp_path / "context_lexicon.json"
+    path.write_text(
+        json.dumps(
+            {
+                "description": "Test lexicon",
+                "schema_version": 1,
+                "words": [
+                    {
+                        "word": "ham",
+                        "length": 3,
+                        "letters": ["a", "h", "m"],
+                        "tags": ["food"],
+                        "frequency": 7,
+                        "frequency_rank": None,
+                        "commonness": "unranked",
+                        "domain_scores": {"food": 0.8},
+                    }
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    entries = read_lexicon_asset(path)
+
+    assert [entry.word for entry in entries] == ["ham"]
+    assert entries[0].frequency_rank is None
+
+
+def test_count_command_reports_total_lengths_and_tags(tmp_path, capsys) -> None:
+    path = tmp_path / "context_lexicon.json"
+    write_json_asset(
+        lexicon_to_json(
+            [
+                LexiconWord(
+                    word="ham",
+                    length=3,
+                    letters=("a", "h", "m"),
+                    tags=("food",),
+                    frequency=7,
+                    frequency_rank=100,
+                    commonness="common",
+                    domain_scores={"food": 1.0},
+                ),
+                LexiconWord(
+                    word="cake",
+                    length=4,
+                    letters=("a", "c", "e", "k"),
+                    tags=("food",),
+                    frequency=3,
+                    frequency_rank=300,
+                    commonness="common",
+                    domain_scores={"food": 1.0},
+                ),
+                LexiconWord(
+                    word="cat",
+                    length=3,
+                    letters=("a", "c", "t"),
+                    tags=("animals",),
+                    frequency=4,
+                    frequency_rank=200,
+                    commonness="common",
+                    domain_scores={"animals": 1.0},
+                ),
+            ]
+        ),
+        path,
+    )
+
+    exit_code = main(["count", "--known", "ahm", "--lexicon", str(path)])
+
+    output = capsys.readouterr().out
+    assert exit_code == 0
+    assert "Selectable words: 1" in output
+    assert "3-letter words: 1" in output
+    assert "food: 1" in output
+    assert "animals" not in output

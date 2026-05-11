@@ -93,6 +93,27 @@ The intended app-side selection rule is deliberately simple:
 
 > A word is selectable when its `letters` are a subset of the learner's known characters. For target-character practice, the selected word should also intersect the current focus letters.
 
+## Count selectable words from an existing lexicon
+
+The `count` command reads an existing `context_lexicon.json` asset and reports how many words are selectable for a supplied set of known characters. It does not rebuild the lexicon, so it is a quick way to check whether a learner stage has enough themed listening material.
+
+```bash
+nltk-3-4-5 count --known kmuresnaptlw
+```
+
+The output includes the total selectable words, a breakdown by word length, and a domain-tag breakdown. You can narrow the count with a focus-letter requirement or a single domain tag:
+
+```bash
+nltk-3-4-5 count --known kmuresnaptlw --focus km
+nltk-3-4-5 count --known kmuresnaptlw --tag food
+```
+
+If the asset is stored somewhere other than `output/context_lexicon.json`, pass its path explicitly:
+
+```bash
+nltk-3-4-5 count --known kmuresnaptlw --lexicon path/to/context_lexicon.json
+```
+
 ## Audit domain fitness
 
 Not every possible theme produces good short-word listening material. Some domains have plenty of short, recognisable words; others collapse under the 3/4/5-letter and known-character constraints. The domain audit estimates which domains are worth keeping.

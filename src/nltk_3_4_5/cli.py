@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+from collections import Counter
 from collections.abc import Sequence
 from pathlib import Path
 
@@ -13,12 +14,13 @@ from .lexicon import (
     audit_to_json,
     build_domain_lexicon,
     lexicon_to_json,
+    read_lexicon_asset,
     selectable_words,
     write_audit_markdown,
     write_json_asset,
 )
 
-LEXICON_COMMANDS = {"build-lexicon", "audit-domains", "select"}
+LEXICON_COMMANDS = {"build-lexicon", "audit-domains", "count", "select"}
 
 
 def add_word_list_arguments(parser: argparse.ArgumentParser) -> None:
@@ -112,6 +114,31 @@ def build_lexicon_parser() -> argparse.ArgumentParser:
         help="Known-character sequence used to estimate early-character domain yield.",
     )
 
+    count_parser = subparsers.add_parser(
+        "count",
+        help="Count words selectable from an existing context_lexicon.json asset.",
+    )
+    count_parser.add_argument(
+        "--known",
+        required=True,
+        help="Letters the learner already knows.",
+    )
+    count_parser.add_argument(
+        "--focus",
+        help="Optional focus letters that selected words should contain.",
+    )
+    count_parser.add_argument(
+        "--tag",
+        choices=sorted(domain.key for domain in DEFAULT_DOMAINS),
+        help="Optional domain tag to count within.",
+    )
+    count_parser.add_argument(
+        "--lexicon",
+        default=Path("output/context_lexicon.json"),
+        type=Path,
+        help="Path to the existing JSON lexicon. Defaults to output/context_lexicon.json.",
+    )
+
     select_parser = subparsers.add_parser(
         "select",
         help="Preview words selectable for a known character set, optional focus letters, and optional tag.",
@@ -179,6 +206,34 @@ def run_lexicon_command(argv: Sequence[str]) -> int:
         json_path = write_json_asset(audit_to_json(rows), args.output_json)
         markdown_path = write_audit_markdown(rows, args.output_md)
         print(f"Domain audit: {len(rows):,} domains written to {json_path} and {markdown_path}")
+        return 0
+
+    if args.command == "count":
+        entries = read_lexicon_asset(args.lexicon)
+        selected = selectable_words(
+            entries,
+            known_letters=args.known,
+            focus_letters=args.focus,
+            tag=args.tag,
+        )
+        length_counts = Counter(entry.length for entry in selected)
+        tag_counts: Counter[str] = Counter()
+        for entry in selected:
+            tag_counts.update(entry.tags)
+
+        print(f"Lexicon: {args.lexicon}")
+        print(f"Known letters: {args.known}")
+        if args.focus:
+            print(f"Focus letters: {args.focus}")
+        if args.tag:
+            print(f"Tag: {args.tag}")
+        print(f"Selectable words: {len(selected):,}")
+        for length in sorted(length_counts):
+            print(f"{length}-letter words: {length_counts[length]:,}")
+        if not args.tag and tag_counts:
+            print("Tags:")
+            for tag, count in sorted(tag_counts.items(), key=lambda item: (-item[1], item[0])):
+                print(f"  {tag}: {count:,}")
         return 0
 
     if args.command == "select":

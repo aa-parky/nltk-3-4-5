@@ -335,6 +335,48 @@ def build_domain_lexicon(
     return entries
 
 
+def lexicon_entries_from_json(data: Mapping[str, object]) -> list[LexiconWord]:
+    """Rebuild lexicon entries from a context_lexicon.json-style dictionary."""
+
+    raw_words = data.get("words", [])
+    if not isinstance(raw_words, list):
+        raise ValueError("Lexicon JSON must contain a 'words' list.")
+
+    entries: list[LexiconWord] = []
+    for raw_entry in raw_words:
+        if not isinstance(raw_entry, Mapping):
+            raise ValueError("Each lexicon word entry must be a JSON object.")
+        word = str(raw_entry["word"])
+        letters = tuple(str(letter) for letter in raw_entry["letters"])
+        tags = tuple(str(tag) for tag in raw_entry["tags"])
+        domain_scores_raw = raw_entry.get("domain_scores", {})
+        if not isinstance(domain_scores_raw, Mapping):
+            raise ValueError(f"Word {word!r} has invalid domain_scores data.")
+        frequency_rank_raw = raw_entry.get("frequency_rank")
+        entries.append(
+            LexiconWord(
+                word=word,
+                length=int(raw_entry["length"]),
+                letters=letters,
+                tags=tags,
+                frequency=int(raw_entry.get("frequency", 0)),
+                frequency_rank=None if frequency_rank_raw is None else int(frequency_rank_raw),
+                commonness=str(raw_entry.get("commonness", "unranked")),
+                domain_scores={str(key): float(value) for key, value in domain_scores_raw.items()},
+            )
+        )
+    return entries
+
+
+def read_lexicon_asset(path: Path) -> list[LexiconWord]:
+    """Read an existing context lexicon JSON asset from disk."""
+
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(data, Mapping):
+        raise ValueError("Lexicon JSON must contain a top-level object.")
+    return lexicon_entries_from_json(data)
+
+
 def selectable_words(
     entries: Iterable[LexiconWord],
     *,

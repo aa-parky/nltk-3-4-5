@@ -7,6 +7,8 @@ from .lexicon import (
     LexiconWord,
     audit_domains,
     build_domain_lexicon,
+    lexicon_entries_from_json,
+    read_lexicon_asset,
     selectable_words,
 )
 
@@ -18,6 +20,8 @@ __all__ = [
     "audit_domains",
     "build_domain_lexicon",
     "generate_word_lists",
+    "lexicon_entries_from_json",
+    "read_lexicon_asset",
     "selectable_words",
     "write_word_lists",
 ]
