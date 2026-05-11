@@ -24,6 +24,7 @@ FREQUENCY_CORPUS = "brown"
 WORDNET_CORPUS = "wordnet"
 
 DEFAULT_EARLY_KOCH_SEQUENCE = "kmuresnaptlwiojzfd yvg5/q9zh38b?47c1d60x".replace(" ", "")
+FOUNDATION_TAG = "foundation"
 
 
 @dataclass(frozen=True)
@@ -335,6 +336,54 @@ def build_domain_lexicon(
     return entries
 
 
+def build_foundation_lexicon(
+    *,
+    lengths: Iterable[int] = DEFAULT_LENGTHS,
+    corpus_words: Iterable[str] | None = None,
+    frequency_counts: Mapping[str, int] | None = None,
+    frequency_ranks: Mapping[str, int] | None = None,
+    min_frequency: int = 1,
+    tag: str = FOUNDATION_TAG,
+) -> list[LexiconWord]:
+    """Build a broad, non-domain lexicon for early-stage context streams.
+
+    The foundation lexicon keeps the same JSON shape as the domain lexicon but uses a
+    single tag. It is intended for early Morse stages where strict themed domains are too
+    sparse, while still excluding words that have no Brown-corpus evidence by default.
+    """
+
+    target_lengths = set(int(length) for length in lengths)
+    dictionary = valid_word_set(corpus_words)
+
+    if frequency_counts is None or frequency_ranks is None:
+        counts, ranks = brown_frequency()
+    else:
+        counts = Counter(frequency_counts)
+        ranks = dict(frequency_ranks)
+
+    entries: list[LexiconWord] = []
+    for word in sorted(dictionary):
+        if len(word) not in target_lengths:
+            continue
+        frequency = int(counts.get(word, 0))
+        if frequency < min_frequency:
+            continue
+        rank = ranks.get(word)
+        entries.append(
+            LexiconWord(
+                word=word,
+                length=len(word),
+                letters=tuple(sorted(set(word))),
+                tags=(tag,),
+                frequency=frequency,
+                frequency_rank=rank,
+                commonness=commonness_for_rank(rank, frequency),
+                domain_scores={tag: 1.0},
+            )
+        )
+    return entries
+
+
 def lexicon_entries_from_json(data: Mapping[str, object]) -> list[LexiconWord]:
     """Rebuild lexicon entries from a context_lexicon.json-style dictionary."""
 
@@ -377,6 +426,46 @@ def read_lexicon_asset(path: Path) -> list[LexiconWord]:
     return lexicon_entries_from_json(data)
 
 
+def matching_words(
+    entries: Iterable[LexiconWord],
+    *,
+    known_letters: str | None = None,
+    focus_letters: str | None = None,
+    contains_letters: str | None = None,
+    require_all_contains: bool = False,
+    tag: str | None = None,
+) -> list[LexiconWord]:
+    """Match entries by eligibility, focus, containment, and optional tag.
+
+    ``known_letters`` is an exclusion filter: every letter in the word must be known.
+    ``focus_letters`` and ``contains_letters`` are inclusion filters: a word must contain
+    at least one requested letter unless ``require_all_contains`` is set for
+    ``contains_letters``.
+    """
+
+    known = normalise_allowed_letters(known_letters)
+    focus = normalise_allowed_letters(focus_letters)
+    contains = normalise_allowed_letters(contains_letters)
+
+    selected: list[LexiconWord] = []
+    for entry in entries:
+        entry_letters = set(entry.letters)
+        if known is not None and not entry_letters.issubset(known):
+            continue
+        if focus is not None and entry_letters.isdisjoint(focus):
+            continue
+        if contains is not None:
+            if require_all_contains:
+                if not contains.issubset(entry_letters):
+                    continue
+            elif entry_letters.isdisjoint(contains):
+                continue
+        if tag is not None and tag not in entry.tags:
+            continue
+        selected.append(entry)
+    return selected
+
+
 def selectable_words(
     entries: Iterable[LexiconWord],
     *,
@@ -386,20 +475,12 @@ def selectable_words(
 ) -> list[LexiconWord]:
     """Select entries that can be copied with known characters and optional focus letters."""
 
-    known = normalise_allowed_letters(known_letters) or frozenset()
-    focus = normalise_allowed_letters(focus_letters)
-
-    selected: list[LexiconWord] = []
-    for entry in entries:
-        entry_letters = set(entry.letters)
-        if not entry_letters.issubset(known):
-            continue
-        if focus is not None and entry_letters.isdisjoint(focus):
-            continue
-        if tag is not None and tag not in entry.tags:
-            continue
-        selected.append(entry)
-    return selected
+    return matching_words(
+        entries,
+        known_letters=known_letters,
+        focus_letters=focus_letters,
+        tag=tag,
+    )
 
 
 def audit_domains(
@@ -452,13 +533,17 @@ def domain_verdict(total: int, common_ratio: float, early_yield: int, average_sc
     return "reject"
 
 
-def lexicon_to_json(entries: Iterable[LexiconWord]) -> dict[str, object]:
+def lexicon_to_json(
+    entries: Iterable[LexiconWord],
+    *,
+    description: str = "Short-word context-stream lexicon for Morse copy practice.",
+) -> dict[str, object]:
     """Convert entries to a stable JSON-serialisable dictionary."""
 
     entry_list = list(entries)
     return {
         "schema_version": 1,
-        "description": "Short-word context-stream lexicon for Morse copy practice.",
+        "description": description,
         "selection_rule": "word.letters must be a subset of the learner's known characters; optional focus letters should intersect word.letters.",
         "words": [asdict(entry) for entry in entry_list],
     }

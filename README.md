@@ -89,24 +89,65 @@ A word record looks like this:
 }
 ```
 
-The intended app-side selection rule is deliberately simple:
+The intended app-side selection rule is deliberately simple, but the distinction between **known** and **focus** letters matters:
 
-> A word is selectable when its `letters` are a subset of the learner's known characters. For target-character practice, the selected word should also intersect the current focus letters.
+> A word is selectable when its `letters` are a subset of the learner's known characters. In other words, known letters are an exclusion filter: any word containing an unknown character is rejected. For target-character practice, the selected word should also intersect the current focus letters, meaning it contains at least one of the requested focus characters.
+
+## Build a foundation lexicon for early stages
+
+Domain-tagged words are useful once the learner has enough characters for themed streams, but they can be too aggressive at the very beginning. For early Koch-style stages, build a broader **foundation** lexicon that keeps short NLTK dictionary words with at least one Brown-corpus occurrence and tags them as `foundation` rather than forcing them into a topic.
+
+```bash
+nltk-3-4-5 build-foundation-lexicon
+```
+
+By default this writes:
+
+```text
+output/foundation_lexicon.json
+```
+
+You can then count against the broader early-stage asset:
+
+```bash
+nltk-3-4-5 count --known kmure --lexicon output/foundation_lexicon.json
+```
+
+This gives the app two practical pools: `foundation_lexicon.json` for early character acquisition, and `context_lexicon.json` for later themed/domain practice.
+
+| Asset | Best use | Filtering strategy |
+|---|---|---|
+| `output/foundation_lexicon.json` | Early stages where themed domains are too sparse. | Broad dictionary words that are also attested in Brown. |
+| `output/context_lexicon.json` | Later contextual streams, themed drills, and domain-aware practice. | Domain candidates from WordNet and curated seeds, with frequency metadata. |
 
 ## Count selectable words from an existing lexicon
 
-The `count` command reads an existing `context_lexicon.json` asset and reports how many words are selectable for a supplied set of known characters. It does not rebuild the lexicon, so it is a quick way to check whether a learner stage has enough themed listening material.
+The `count` command reads an existing JSON lexicon asset and reports how many words are selectable for a supplied set of known characters. It does not rebuild the lexicon, so it is a quick way to check whether a learner stage has enough listening material. Use the foundation lexicon for early-stage breadth, and the context lexicon when you specifically want themed/domain material.
+
+The `--known` option is deliberately restrictive: `--known km` means “only words made entirely from `k` and `m`”, not “words that contain `k` or `m`”. To ask the exploratory question “which words contain `k` or `m`?”, use standalone `--focus km` or the more explicit `--contains km`. To require both letters to appear in the same word, add `--contains-all`.
 
 ```bash
 nltk-3-4-5 count --known kmuresnaptlw
 ```
 
-The output includes the total selectable words, a breakdown by word length, and a domain-tag breakdown. You can narrow the count with a focus-letter requirement or a single domain tag:
+The output includes the total selectable words, a breakdown by word length, and a tag breakdown. You can narrow the count with a focus-letter requirement or a single tag:
 
 ```bash
 nltk-3-4-5 count --known kmuresnaptlw --focus km
 nltk-3-4-5 count --known kmuresnaptlw --tag food
+nltk-3-4-5 count --known kmuresnaptlw --tag foundation --lexicon output/foundation_lexicon.json
+nltk-3-4-5 count --focus km --lexicon output/foundation_lexicon.json
+nltk-3-4-5 count --contains km --contains-all --lexicon output/foundation_lexicon.json
 ```
+
+These modes answer different development questions:
+
+| Example | Meaning |
+|---|---|
+| `--known km` | Count words made only from `k` and `m`. |
+| `--known kmures --focus km` | Count words made only from known letters and containing `k` or `m`. |
+| `--focus km` | Count words containing `k` or `m`, with no known-letter restriction. |
+| `--contains km --contains-all` | Count words containing both `k` and `m`, with no known-letter restriction. |
 
 If the asset is stored somewhere other than `output/context_lexicon.json`, pass its path explicitly:
 

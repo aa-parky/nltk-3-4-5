@@ -8,9 +8,11 @@ from nltk_3_4_5.lexicon import (
     LexiconWord,
     audit_domains,
     audit_to_json,
+    build_foundation_lexicon,
     commonness_for_rank,
     lexicon_entries_from_json,
     lexicon_to_json,
+    matching_words,
     read_lexicon_asset,
     selectable_words,
     write_json_asset,
@@ -22,6 +24,45 @@ def test_commonness_for_rank_groups_frequency_usefully() -> None:
     assert commonness_for_rank(8_000, 10) == "familiar"
     assert commonness_for_rank(20_000, 1) == "rare"
     assert commonness_for_rank(None, 0) == "unranked"
+
+
+def test_matching_words_distinguishes_known_from_contains() -> None:
+    entries = [
+        LexiconWord(
+            word="mum",
+            length=3,
+            letters=("m", "u"),
+            tags=("foundation",),
+            frequency=2,
+            frequency_rank=100,
+            commonness="common",
+            domain_scores={"foundation": 1.0},
+        ),
+        LexiconWord(
+            word="kite",
+            length=4,
+            letters=("e", "i", "k", "t"),
+            tags=("foundation",),
+            frequency=2,
+            frequency_rank=200,
+            commonness="common",
+            domain_scores={"foundation": 1.0},
+        ),
+        LexiconWord(
+            word="rum",
+            length=3,
+            letters=("m", "r", "u"),
+            tags=("foundation",),
+            frequency=1,
+            frequency_rank=300,
+            commonness="common",
+            domain_scores={"foundation": 1.0},
+        ),
+    ]
+
+    assert matching_words(entries, known_letters="km") == []
+    assert [entry.word for entry in matching_words(entries, contains_letters="km")] == ["mum", "kite", "rum"]
+    assert [entry.word for entry in matching_words(entries, contains_letters="km", require_all_contains=True)] == []
 
 
 def test_selectable_words_filters_by_known_focus_and_tag() -> None:
@@ -98,6 +139,20 @@ def test_audit_domains_counts_lengths_and_verdicts() -> None:
     assert rows[0].five_letter == 30
     assert rows[0].total_words == 40
     assert rows[0].verdict == "keep"
+
+
+def test_build_foundation_lexicon_keeps_broad_brown_attested_words() -> None:
+    entries = build_foundation_lexicon(
+        lengths=(3, 4),
+        corpus_words=("mum", "rum", "emu", "mars", "Moon", "rare"),
+        frequency_counts={"mum": 2, "rum": 1, "emu": 0, "mars": 3, "rare": 0},
+        frequency_ranks={"mum": 1_000, "rum": 8_000, "mars": 20_000},
+    )
+
+    assert [entry.word for entry in entries] == ["mars", "mum", "rum"]
+    assert {entry.tags for entry in entries} == {("foundation",)}
+    assert entries[0].domain_scores == {"foundation": 1.0}
+    assert entries[0].commonness == "rare"
 
 
 def test_lexicon_json_and_audit_json_are_serialisable(tmp_path) -> None:
@@ -181,6 +236,103 @@ def test_read_lexicon_asset_loads_context_lexicon_json(tmp_path) -> None:
 
     assert [entry.word for entry in entries] == ["ham"]
     assert entries[0].frequency_rank is None
+
+
+def test_build_foundation_lexicon_command_writes_json_asset(tmp_path, capsys) -> None:
+    output_path = tmp_path / "foundation_lexicon.json"
+
+    exit_code = main(["build-foundation-lexicon", "--output", str(output_path), "--lengths", "3"])
+
+    output = capsys.readouterr().out
+    assert exit_code == 0
+    assert "Foundation lexicon:" in output
+    assert output_path.exists()
+    data = json.loads(output_path.read_text(encoding="utf-8"))
+    assert data["description"] == "Broad Brown-attested short-word lexicon for early Morse copy stages."
+    assert {word["length"] for word in data["words"]} == {3}
+    assert {"foundation"} <= {tag for word in data["words"] for tag in word["tags"]}
+
+
+def test_count_command_allows_focus_without_known_as_containment_count(tmp_path, capsys) -> None:
+    path = tmp_path / "foundation_lexicon.json"
+    write_json_asset(
+        lexicon_to_json(
+            [
+                LexiconWord(
+                    word="mum",
+                    length=3,
+                    letters=("m", "u"),
+                    tags=("foundation",),
+                    frequency=2,
+                    frequency_rank=100,
+                    commonness="common",
+                    domain_scores={"foundation": 1.0},
+                ),
+                LexiconWord(
+                    word="era",
+                    length=3,
+                    letters=("a", "e", "r"),
+                    tags=("foundation",),
+                    frequency=3,
+                    frequency_rank=200,
+                    commonness="common",
+                    domain_scores={"foundation": 1.0},
+                ),
+            ]
+        ),
+        path,
+    )
+
+    exit_code = main(["count", "--focus", "km", "--lexicon", str(path)])
+
+    output = capsys.readouterr().out
+    assert exit_code == 0
+    assert "Known letters: not restricted" in output
+    assert "Focus letters: km" in output
+    assert "Selectable words: 1" in output
+    assert "foundation: 1" in output
+
+
+def test_count_command_supports_explicit_contains_any_and_all(tmp_path, capsys) -> None:
+    path = tmp_path / "foundation_lexicon.json"
+    write_json_asset(
+        lexicon_to_json(
+            [
+                LexiconWord(
+                    word="make",
+                    length=4,
+                    letters=("a", "e", "k", "m"),
+                    tags=("foundation",),
+                    frequency=5,
+                    frequency_rank=100,
+                    commonness="common",
+                    domain_scores={"foundation": 1.0},
+                ),
+                LexiconWord(
+                    word="mum",
+                    length=3,
+                    letters=("m", "u"),
+                    tags=("foundation",),
+                    frequency=2,
+                    frequency_rank=200,
+                    commonness="common",
+                    domain_scores={"foundation": 1.0},
+                ),
+            ]
+        ),
+        path,
+    )
+
+    any_exit_code = main(["count", "--contains", "km", "--lexicon", str(path)])
+    any_output = capsys.readouterr().out
+    all_exit_code = main(["count", "--contains", "km", "--contains-all", "--lexicon", str(path)])
+    all_output = capsys.readouterr().out
+
+    assert any_exit_code == 0
+    assert "Selectable words: 2" in any_output
+    assert all_exit_code == 0
+    assert "Contains letters: km (all)" in all_output
+    assert "Selectable words: 1" in all_output
 
 
 def test_count_command_reports_total_lengths_and_tags(tmp_path, capsys) -> None:

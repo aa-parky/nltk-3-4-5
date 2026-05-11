@@ -13,14 +13,16 @@ from .lexicon import (
     audit_domains,
     audit_to_json,
     build_domain_lexicon,
+    build_foundation_lexicon,
     lexicon_to_json,
+    matching_words,
     read_lexicon_asset,
     selectable_words,
     write_audit_markdown,
     write_json_asset,
 )
 
-LEXICON_COMMANDS = {"build-lexicon", "audit-domains", "count", "select"}
+LEXICON_COMMANDS = {"build-lexicon", "build-foundation-lexicon", "audit-domains", "count", "select"}
 
 
 def add_word_list_arguments(parser: argparse.ArgumentParser) -> None:
@@ -92,6 +94,30 @@ def build_lexicon_parser() -> argparse.ArgumentParser:
         help="Exact word lengths to include. Defaults to 3 4 5.",
     )
 
+    foundation_parser = subparsers.add_parser(
+        "build-foundation-lexicon",
+        help="Build a broad Brown-attested JSON lexicon for early Morse stages before domains have enough yield.",
+    )
+    foundation_parser.add_argument(
+        "--output",
+        default=Path("output/foundation_lexicon.json"),
+        type=Path,
+        help="Foundation lexicon output path. Defaults to output/foundation_lexicon.json.",
+    )
+    foundation_parser.add_argument(
+        "--lengths",
+        nargs="+",
+        default=DEFAULT_LENGTHS,
+        type=int,
+        help="Exact word lengths to include. Defaults to 3 4 5.",
+    )
+    foundation_parser.add_argument(
+        "--min-frequency",
+        default=1,
+        type=int,
+        help="Minimum Brown-corpus frequency required for a word. Defaults to 1.",
+    )
+
     audit_parser = subparsers.add_parser(
         "audit-domains",
         help="Build the lexicon and write domain-fitness audit outputs.",
@@ -120,17 +146,27 @@ def build_lexicon_parser() -> argparse.ArgumentParser:
     )
     count_parser.add_argument(
         "--known",
-        required=True,
-        help="Letters the learner already knows.",
+        help="Optional known letters; words containing any other letters are excluded when supplied.",
     )
     count_parser.add_argument(
         "--focus",
-        help="Optional focus letters that selected words should contain.",
+        help=(
+            "Optional focus letters; matched words must contain at least one of these letters. "
+            "With --known this narrows selectable words; without --known it is a containment count."
+        ),
+    )
+    count_parser.add_argument(
+        "--contains",
+        help="Optional letters to look for anywhere in each word, without requiring them to be the only known letters.",
+    )
+    count_parser.add_argument(
+        "--contains-all",
+        action="store_true",
+        help="When used with --contains, require every contains letter to appear in each word.",
     )
     count_parser.add_argument(
         "--tag",
-        choices=sorted(domain.key for domain in DEFAULT_DOMAINS),
-        help="Optional domain tag to count within.",
+        help="Optional tag to count within, such as a domain tag or foundation.",
     )
     count_parser.add_argument(
         "--lexicon",
@@ -146,11 +182,11 @@ def build_lexicon_parser() -> argparse.ArgumentParser:
     select_parser.add_argument(
         "--known",
         required=True,
-        help="Letters the learner already knows.",
+        help="Letters the learner already knows; words containing any other letters are excluded.",
     )
     select_parser.add_argument(
         "--focus",
-        help="Optional focus letters that selected words should contain.",
+        help="Optional focus letters; selected words must contain at least one of these letters.",
     )
     select_parser.add_argument(
         "--tag",
@@ -200,6 +236,18 @@ def run_lexicon_command(argv: Sequence[str]) -> int:
         print(f"Lexicon: {len(entries):,} words written to {output_path}")
         return 0
 
+    if args.command == "build-foundation-lexicon":
+        entries = build_foundation_lexicon(lengths=args.lengths, min_frequency=args.min_frequency)
+        output_path = write_json_asset(
+            lexicon_to_json(
+                entries,
+                description="Broad Brown-attested short-word lexicon for early Morse copy stages.",
+            ),
+            args.output,
+        )
+        print(f"Foundation lexicon: {len(entries):,} words written to {output_path}")
+        return 0
+
     if args.command == "audit-domains":
         entries = build_domain_lexicon()
         rows = audit_domains(entries, early_sequence=args.early_sequence)
@@ -209,11 +257,15 @@ def run_lexicon_command(argv: Sequence[str]) -> int:
         return 0
 
     if args.command == "count":
+        if args.contains_all and not args.contains:
+            parser.error("--contains-all requires --contains")
         entries = read_lexicon_asset(args.lexicon)
-        selected = selectable_words(
+        selected = matching_words(
             entries,
             known_letters=args.known,
             focus_letters=args.focus,
+            contains_letters=args.contains,
+            require_all_contains=args.contains_all,
             tag=args.tag,
         )
         length_counts = Counter(entry.length for entry in selected)
@@ -222,9 +274,15 @@ def run_lexicon_command(argv: Sequence[str]) -> int:
             tag_counts.update(entry.tags)
 
         print(f"Lexicon: {args.lexicon}")
-        print(f"Known letters: {args.known}")
+        if args.known:
+            print(f"Known letters: {args.known}")
+        else:
+            print("Known letters: not restricted")
         if args.focus:
             print(f"Focus letters: {args.focus}")
+        if args.contains:
+            contains_mode = "all" if args.contains_all else "any"
+            print(f"Contains letters: {args.contains} ({contains_mode})")
         if args.tag:
             print(f"Tag: {args.tag}")
         print(f"Selectable words: {len(selected):,}")
