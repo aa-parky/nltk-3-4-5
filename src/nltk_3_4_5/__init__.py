@@ -1,5 +1,23 @@
-"""Utilities for generating 3-, 4-, and 5-letter English word lists with NLTK."""
+"""Utilities for generating short English word lists and context-stream lexicons."""
 
 from .generator import WordLists, generate_word_lists, write_word_lists
+from .lexicon import (
+    DomainAuditRow,
+    DomainDefinition,
+    LexiconWord,
+    audit_domains,
+    build_domain_lexicon,
+    selectable_words,
+)
 
-__all__ = ["WordLists", "generate_word_lists", "write_word_lists"]
+__all__ = [
+    "DomainAuditRow",
+    "DomainDefinition",
+    "LexiconWord",
+    "WordLists",
+    "audit_domains",
+    "build_domain_lexicon",
+    "generate_word_lists",
+    "selectable_words",
+    "write_word_lists",
+]

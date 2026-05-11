@@ -1,0 +1,150 @@
+{
+  "description": "Domain fitness audit for short-word Morse context streams.",
+  "domains": [
+    {
+      "average_domain_score": 0.651,
+      "common_ratio": 0.692,
+      "domain": "music",
+      "early_character_yield": 27,
+      "five_letter": 83,
+      "four_letter": 74,
+      "label": "Music",
+      "three_letter": 25,
+      "total_words": 182,
+      "verdict": "keep"
+    },
+    {
+      "average_domain_score": 0.742,
+      "common_ratio": 0.834,
+      "domain": "home",
+      "early_character_yield": 26,
+      "five_letter": 66,
+      "four_letter": 72,
+      "label": "Home",
+      "three_letter": 31,
+      "total_words": 169,
+      "verdict": "keep"
+    },
+    {
+      "average_domain_score": 0.744,
+      "common_ratio": 0.621,
+      "domain": "food",
+      "early_character_yield": 25,
+      "five_letter": 66,
+      "four_letter": 66,
+      "label": "Food",
+      "three_letter": 29,
+      "total_words": 161,
+      "verdict": "keep"
+    },
+    {
+      "average_domain_score": 0.837,
+      "common_ratio": 0.634,
+      "domain": "animals",
+      "early_character_yield": 16,
+      "five_letter": 34,
+      "four_letter": 44,
+      "label": "Animals",
+      "three_letter": 23,
+      "total_words": 101,
+      "verdict": "keep"
+    },
+    {
+      "average_domain_score": 0.828,
+      "common_ratio": 0.747,
+      "domain": "nature",
+      "early_character_yield": 13,
+      "five_letter": 38,
+      "four_letter": 39,
+      "label": "Nature",
+      "three_letter": 18,
+      "total_words": 95,
+      "verdict": "keep"
+    },
+    {
+      "average_domain_score": 0.704,
+      "common_ratio": 0.822,
+      "domain": "travel",
+      "early_character_yield": 14,
+      "five_letter": 29,
+      "four_letter": 48,
+      "label": "Travel",
+      "three_letter": 13,
+      "total_words": 90,
+      "verdict": "keep"
+    },
+    {
+      "average_domain_score": 0.764,
+      "common_ratio": 0.875,
+      "domain": "body",
+      "early_character_yield": 17,
+      "five_letter": 31,
+      "four_letter": 40,
+      "label": "Body",
+      "three_letter": 17,
+      "total_words": 88,
+      "verdict": "keep"
+    },
+    {
+      "average_domain_score": 0.76,
+      "common_ratio": 0.852,
+      "domain": "work",
+      "early_character_yield": 12,
+      "five_letter": 28,
+      "four_letter": 40,
+      "label": "Work",
+      "three_letter": 13,
+      "total_words": 81,
+      "verdict": "keep"
+    },
+    {
+      "average_domain_score": 0.812,
+      "common_ratio": 0.725,
+      "domain": "weather",
+      "early_character_yield": 6,
+      "five_letter": 19,
+      "four_letter": 27,
+      "label": "Weather",
+      "three_letter": 5,
+      "total_words": 51,
+      "verdict": "keep"
+    },
+    {
+      "average_domain_score": 0.729,
+      "common_ratio": 0.756,
+      "domain": "space",
+      "early_character_yield": 5,
+      "five_letter": 20,
+      "four_letter": 17,
+      "label": "Space",
+      "three_letter": 8,
+      "total_words": 45,
+      "verdict": "keep"
+    },
+    {
+      "average_domain_score": 0.854,
+      "common_ratio": 0.756,
+      "domain": "maritime",
+      "early_character_yield": 7,
+      "five_letter": 14,
+      "four_letter": 19,
+      "label": "Maritime",
+      "three_letter": 8,
+      "total_words": 41,
+      "verdict": "keep"
+    },
+    {
+      "average_domain_score": 0.858,
+      "common_ratio": 0.872,
+      "domain": "emergency",
+      "early_character_yield": 4,
+      "five_letter": 22,
+      "four_letter": 13,
+      "label": "Emergency",
+      "three_letter": 4,
+      "total_words": 39,
+      "verdict": "maybe"
+    }
+  ],
+  "schema_version": 1
+}

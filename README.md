@@ -1,8 +1,8 @@
 # nltk-3-4-5
 
-`nltk-3-4-5` is a small Python command-line application that uses the **NLTK `words` corpus** to generate three separate English word lists: one for **3-letter words**, one for **4-letter words**, and one for **5-letter words**. It is configured for local development with **pyenv set to Python 3.13**.
+`nltk-3-4-5` is a small Python command-line toolkit for generating short English word assets from **NLTK**. It started as a simple generator for separate **3-letter**, **4-letter**, and **5-letter** word lists, and now also includes an offline **context-stream lexicon** workflow for Morse copy practice.
 
-The application writes newline-delimited `.txt` files into an output directory. By default it excludes capitalised entries, which helps avoid likely proper nouns, and it keeps only alphabetic words.
+The project is configured for local development with **pyenv set to Python 3.13**. It favours offline generation: the linguistic and curation work happens in this repository, while an app can consume stable JSON assets without needing to run NLTK at runtime.
 
 ## Project structure
 
@@ -10,10 +10,11 @@ The application writes newline-delimited `.txt` files into an output directory. 
 |---|---|
 | `.python-version` | Sets the local pyenv version to Python 3.13. |
 | `pyproject.toml` | Declares package metadata, dependencies, console script, and test configuration. |
-| `src/nltk_3_4_5/generator.py` | Contains the NLTK corpus loading, filtering, generation, and file-writing logic. |
+| `src/nltk_3_4_5/generator.py` | Contains the original NLTK word-list loading, filtering, generation, and file-writing logic. |
+| `src/nltk_3_4_5/lexicon.py` | Builds domain-tagged, frequency-aware, JSON-ready short-word lexicons. |
 | `src/nltk_3_4_5/cli.py` | Provides the `nltk-3-4-5` command-line interface. |
-| `tests/test_generator.py` | Covers filtering, grouping, sorting, and output writing. |
-| `output/` | Default folder for generated word-list files. |
+| `tests/` | Covers word-list generation, lexicon selection, audit scoring, and JSON writing. |
+| `output/` | Default folder for generated text and JSON assets. |
 
 ## Setup
 
@@ -27,9 +28,9 @@ python -m pip install --upgrade pip
 python -m pip install -e ".[dev]"
 ```
 
-The first generation run downloads the small NLTK `words` corpus if it is not already available in your local NLTK data directory.
+The first generation run downloads the required NLTK corpora if they are not already available in your local NLTK data directory. The plain word-list generator uses `words`; the context lexicon also uses `wordnet` and `brown`.
 
-## Generate the default lists
+## Generate the default 3-, 4-, and 5-letter lists
 
 ```bash
 nltk-3-4-5
@@ -57,7 +58,88 @@ You can also choose a different output directory:
 nltk-3-4-5 --letters etianmsurwdkgo --output-dir output/morse_stage_1
 ```
 
-## Additional options
+## Build a context-stream lexicon
+
+The context-stream workflow creates a single JSON file containing words, lengths, required letters, domain tags, Brown-corpus frequency information, broad commonness labels, and per-domain confidence scores.
+
+```bash
+nltk-3-4-5 build-lexicon
+```
+
+By default this writes:
+
+```text
+output/context_lexicon.json
+```
+
+A word record looks like this:
+
+```json
+{
+  "word": "ship",
+  "length": 4,
+  "letters": ["h", "i", "p", "s"],
+  "tags": ["maritime"],
+  "frequency": 73,
+  "frequency_rank": 2113,
+  "commonness": "common",
+  "domain_scores": {
+    "maritime": 1.0
+  }
+}
+```
+
+The intended app-side selection rule is deliberately simple:
+
+> A word is selectable when its `letters` are a subset of the learner's known characters. For target-character practice, the selected word should also intersect the current focus letters.
+
+## Audit domain fitness
+
+Not every possible theme produces good short-word listening material. Some domains have plenty of short, recognisable words; others collapse under the 3/4/5-letter and known-character constraints. The domain audit estimates which domains are worth keeping.
+
+```bash
+nltk-3-4-5 audit-domains
+```
+
+This writes two files:
+
+| File | Purpose |
+|---|---|
+| `output/domain_audit.json` | Machine-readable domain-fitness summary. |
+| `output/domain_audit.md` | Human-readable Markdown audit table. |
+
+The audit includes counts by word length, the ratio of common or familiar words, early-character yield, average domain score, and a simple `keep`, `maybe`, or `reject` verdict.
+
+## Preview selectable words
+
+You can preview words that would be selectable for a learner's known character set. This does not replace the app's runtime selection; it is a development aid for checking whether a domain has enough usable depth.
+
+```bash
+nltk-3-4-5 select --known kmuresnaptlw --tag food --limit 30
+```
+
+You can also require focus letters:
+
+```bash
+nltk-3-4-5 select --known kmuresnaptlw --focus km --tag food
+```
+
+## Context lexicon design
+
+The context-stream lexicon is intentionally **theme-agnostic**. Domains are not chosen because they are interesting in the abstract; they are chosen because they produce useful short words after filtering. The included starter domains are candidates for audit and curation, not a final curriculum.
+
+| Layer | Purpose |
+|---|---|
+| NLTK `words` | Validates alphabetic English candidates. |
+| WordNet | Expands domains from seed concepts and semantic relations. |
+| Curated seed words | Improves quality where WordNet is too broad, too technical, or too sparse. |
+| Brown corpus frequency | Ranks common words above obscure dictionary entries. |
+| Character metadata | Lets an app select words by known Morse characters without linguistic processing. |
+| Domain audit | Identifies domains with enough depth, variance, and early-character survivability. |
+
+The generated JSON is designed for the Copy philosophy: listening first, self-review after, and no need to treat missed copy as failure. Missing copy is expected; the important behaviour is continuing forward while the ear gradually recognises more of the stream.
+
+## Additional plain word-list options
 
 | Option | Behaviour |
 |---|---|
@@ -74,4 +156,4 @@ pytest
 
 ## Notes on corpus choice
 
-The NLTK `words` corpus is a practical default for this project because it behaves like a broad English word list rather than a sentence corpus. The app normalises accepted words to lowercase, deduplicates them, sorts them alphabetically, and writes one file per requested word length.
+The original generator uses the NLTK `words` corpus because it behaves like a broad English word list rather than a sentence corpus. The context lexicon adds WordNet for domain expansion and the Brown corpus for simple frequency-based commonness. The result should still be treated as a candidate dataset: the audit helps identify strong domains, and light human curation should remove words that feel obscure, misleading, offensive, or unsuitable for a listening stream.
