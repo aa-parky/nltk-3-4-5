@@ -26,6 +26,35 @@ WORDNET_CORPUS = "wordnet"
 DEFAULT_EARLY_KOCH_SEQUENCE = "kmuresnaptlwiojzfd yvg5/q9zh38b?47c1d60x".replace(" ", "")
 FOUNDATION_TAG = "foundation"
 
+MORSE_CODE: dict[str, str] = {
+    "a": ".-",
+    "b": "-...",
+    "c": "-.-.",
+    "d": "-..",
+    "e": ".",
+    "f": "..-.",
+    "g": "--.",
+    "h": "....",
+    "i": "..",
+    "j": ".---",
+    "k": "-.-",
+    "l": ".-..",
+    "m": "--",
+    "n": "-.",
+    "o": "---",
+    "p": ".--.",
+    "q": "--.-",
+    "r": ".-.",
+    "s": "...",
+    "t": "-",
+    "u": "..-",
+    "v": "...-",
+    "w": ".--",
+    "x": "-..-",
+    "y": "-.--",
+    "z": "--..",
+}
+
 
 @dataclass(frozen=True)
 class DomainDefinition:
@@ -50,6 +79,13 @@ class LexiconWord:
     frequency_rank: int | None
     commonness: str
     domain_scores: Mapping[str, float]
+    morse: str = ""
+    rhythm_signature: str = ""
+    dit_count: int = 0
+    dah_count: int = 0
+    transitions: int = 0
+    repeat_pressure: str = "low"
+    rhythm_diversity: float = 0.0
 
 
 @dataclass(frozen=True)
@@ -280,6 +316,122 @@ def wordnet_domain_candidates(domain: DomainDefinition, *, max_depth: int = 2) -
     return candidates
 
 
+def morse_for_word(word: str) -> str:
+    """Return a space-separated Morse representation for a lowercase word."""
+
+    return " ".join(MORSE_CODE[letter] for letter in word)
+
+
+def rhythm_signature_for_word(word: str) -> str:
+    """Return a compact D/I rhythm signature with underscores between letters."""
+
+    return "_".join(MORSE_CODE[letter].replace("-", "D").replace(".", "I") for letter in word)
+
+
+def _max_run_length(symbols: str) -> int:
+    """Return the longest uninterrupted dit/dah run in a symbol string."""
+
+    if not symbols:
+        return 0
+    max_run = 1
+    current_run = 1
+    for previous, current in zip(symbols, symbols[1:]):
+        if current == previous:
+            current_run += 1
+            max_run = max(max_run, current_run)
+        else:
+            current_run = 1
+    return max_run
+
+
+def repeat_pressure_for_symbols(symbols: str) -> str:
+    """Classify how strongly a rhythm repeats the same symbol."""
+
+    max_run = _max_run_length(symbols)
+    if max_run >= 4:
+        return "high"
+    if max_run >= 2:
+        return "medium"
+    return "low"
+
+
+def rhythm_diversity_for_word(word: str) -> float:
+    """Score rhythmic variety from 0.0 to 1.0 for early Morse imprinting.
+
+    The score rewards a balanced dit/dah mix, changes between dits and dahs,
+    different per-letter rhythm shapes, and avoids excessive repeated runs.
+    """
+
+    codes = [MORSE_CODE[letter] for letter in word]
+    symbols = "".join(codes)
+    total = len(symbols)
+    if total == 0:
+        return 0.0
+
+    dit_count = symbols.count(".")
+    dah_count = symbols.count("-")
+    balance = 1.0 - (abs(dit_count - dah_count) / total)
+    transition_count = sum(1 for previous, current in zip(symbols, symbols[1:]) if previous != current)
+    transition_density = transition_count / max(total - 1, 1)
+    letter_shape_variety = len(set(codes)) / len(codes)
+    run_penalty = max(0.0, 1.0 - ((_max_run_length(symbols) - 1) / max(total - 1, 1)))
+
+    score = (
+        (0.35 * balance)
+        + (0.30 * transition_density)
+        + (0.20 * letter_shape_variety)
+        + (0.15 * run_penalty)
+    )
+    return round(score, 3)
+
+
+def rhythm_metadata_for_word(word: str) -> dict[str, object]:
+    """Build the rhythm metadata exported with each lexicon entry."""
+
+    morse = morse_for_word(word)
+    symbols = morse.replace(" ", "")
+    return {
+        "morse": morse,
+        "rhythm_signature": rhythm_signature_for_word(word),
+        "dit_count": symbols.count("."),
+        "dah_count": symbols.count("-"),
+        "transitions": sum(1 for previous, current in zip(symbols, symbols[1:]) if previous != current),
+        "repeat_pressure": repeat_pressure_for_symbols(symbols),
+        "rhythm_diversity": rhythm_diversity_for_word(word),
+    }
+
+
+def lexicon_word(
+    *,
+    word: str,
+    tags: tuple[str, ...],
+    frequency: int,
+    frequency_rank: int | None,
+    commonness: str,
+    domain_scores: Mapping[str, float],
+) -> LexiconWord:
+    """Create a lexicon word with standard lexical and Morse rhythm metadata."""
+
+    rhythm = rhythm_metadata_for_word(word)
+    return LexiconWord(
+        word=word,
+        length=len(word),
+        letters=tuple(sorted(set(word))),
+        tags=tags,
+        frequency=frequency,
+        frequency_rank=frequency_rank,
+        commonness=commonness,
+        domain_scores=domain_scores,
+        morse=str(rhythm["morse"]),
+        rhythm_signature=str(rhythm["rhythm_signature"]),
+        dit_count=int(rhythm["dit_count"]),
+        dah_count=int(rhythm["dah_count"]),
+        transitions=int(rhythm["transitions"]),
+        repeat_pressure=str(rhythm["repeat_pressure"]),
+        rhythm_diversity=float(rhythm["rhythm_diversity"]),
+    )
+
+
 def build_domain_lexicon(
     *,
     domains: Iterable[DomainDefinition] = DEFAULT_DOMAINS,
@@ -321,10 +473,8 @@ def build_domain_lexicon(
         frequency = int(counts.get(word, 0))
         rank = ranks.get(word)
         entries.append(
-            LexiconWord(
+            lexicon_word(
                 word=word,
-                length=len(word),
-                letters=tuple(sorted(set(word))),
                 tags=tuple(sorted(domain_scores)),
                 frequency=frequency,
                 frequency_rank=rank,
@@ -370,10 +520,8 @@ def build_foundation_lexicon(
             continue
         rank = ranks.get(word)
         entries.append(
-            LexiconWord(
+            lexicon_word(
                 word=word,
-                length=len(word),
-                letters=tuple(sorted(set(word))),
                 tags=(tag,),
                 frequency=frequency,
                 frequency_rank=rank,
@@ -402,6 +550,7 @@ def lexicon_entries_from_json(data: Mapping[str, object]) -> list[LexiconWord]:
         if not isinstance(domain_scores_raw, Mapping):
             raise ValueError(f"Word {word!r} has invalid domain_scores data.")
         frequency_rank_raw = raw_entry.get("frequency_rank")
+        rhythm = rhythm_metadata_for_word(word)
         entries.append(
             LexiconWord(
                 word=word,
@@ -412,6 +561,13 @@ def lexicon_entries_from_json(data: Mapping[str, object]) -> list[LexiconWord]:
                 frequency_rank=None if frequency_rank_raw is None else int(frequency_rank_raw),
                 commonness=str(raw_entry.get("commonness", "unranked")),
                 domain_scores={str(key): float(value) for key, value in domain_scores_raw.items()},
+                morse=str(raw_entry.get("morse", rhythm["morse"])),
+                rhythm_signature=str(raw_entry.get("rhythm_signature", rhythm["rhythm_signature"])),
+                dit_count=int(raw_entry.get("dit_count", rhythm["dit_count"])),
+                dah_count=int(raw_entry.get("dah_count", rhythm["dah_count"])),
+                transitions=int(raw_entry.get("transitions", rhythm["transitions"])),
+                repeat_pressure=str(raw_entry.get("repeat_pressure", rhythm["repeat_pressure"])),
+                rhythm_diversity=float(raw_entry.get("rhythm_diversity", rhythm["rhythm_diversity"])),
             )
         )
     return entries
@@ -542,9 +698,10 @@ def lexicon_to_json(
 
     entry_list = list(entries)
     return {
-        "schema_version": 1,
+        "schema_version": 2,
         "description": description,
-        "selection_rule": "word.letters must be a subset of the learner's known characters; optional focus letters should intersect word.letters.",
+        "selection_rule": "word.letters must be a subset of the learner's known characters when known letters are supplied; focus and contains letters are inclusion filters.",
+        "rhythm_rule": "Morse rhythm metadata uses D for dah, I for dit, underscores for letter breaks, and rhythm_diversity from 0.0 to 1.0 for ranking early imprint opportunities.",
         "words": [asdict(entry) for entry in entry_list],
     }
 

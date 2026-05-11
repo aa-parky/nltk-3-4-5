@@ -85,9 +85,18 @@ A word record looks like this:
   "commonness": "common",
   "domain_scores": {
     "maritime": 1.0
-  }
+  },
+  "morse": "... .... .. .--.",
+  "rhythm_signature": "III_IIII_II_IDDI",
+  "dit_count": 9,
+  "dah_count": 2,
+  "transitions": 2,
+  "repeat_pressure": "high",
+  "rhythm_diversity": 0.47
 }
 ```
+
+The rhythm fields let the app treat the word as sound before text. `morse` keeps the letter-by-letter Morse pattern, `rhythm_signature` stores the same pattern as `I` for dit and `D` for dah, `dit_count` and `dah_count` describe balance, `transitions` counts dit/dah alternations, `repeat_pressure` flags heavily repeated patterns, and `rhythm_diversity` provides a sortable score between `0.0` and `1.0` for rhythm-rich practice material.
 
 The intended app-side selection rule is deliberately simple, but the distinction between **known** and **focus** letters matters:
 
@@ -171,6 +180,32 @@ This writes two files:
 | `output/domain_audit.md` | Human-readable Markdown audit table. |
 
 The audit includes counts by word length, the ratio of common or familiar words, early-character yield, average domain score, and a simple `keep`, `maybe`, or `reject` verdict.
+
+## Sample rhythm-rich focus words
+
+The `sample` command is the learner-facing complement to `count`. It returns a small candidate set from an existing lexicon, using the same focus, contains, known-letter, and tag filters, then ranks the result for teaching use.
+
+```bash
+nltk-3-4-5 sample --focus kmu --prefer rhythmic-diverse
+```
+
+The `rhythmic-diverse` preference favours words with higher `rhythm_diversity`, while still keeping frequency as a tie-breaker. This is useful for early context streams because the learner can hear varied Morse shapes before the full word is copyable from known characters alone.
+
+| Option | Meaning |
+|---|---|
+| `--focus kmu` | Match words containing at least one of `k`, `m`, or `u`. |
+| `--contains kmu --contains-all` | Match words containing all supplied characters. |
+| `--known kmures` | Optionally restrict the sample to words made only from known letters. |
+| `--prefer rhythmic-diverse` | Rank by rhythm-rich Morse shape first, then by frequency. |
+| `--limit 20` | Control the number of sample words printed. |
+
+For example, `mud` is exported and displayed with both its Morse and rhythm signature:
+
+```text
+mud: -- ..- -.. | DD_IID_DII | rhythm=0.72
+```
+
+This creates the missing **context stream** layer: Koch and Farnsworth still control character order and timing, while the lexicon can now choose words that provide a strong rhythmic imprint for the current focus set.
 
 ## Preview selectable words
 

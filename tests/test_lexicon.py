@@ -12,6 +12,7 @@ from nltk_3_4_5.lexicon import (
     commonness_for_rank,
     lexicon_entries_from_json,
     lexicon_to_json,
+    lexicon_word,
     matching_words,
     read_lexicon_asset,
     selectable_words,
@@ -156,10 +157,8 @@ def test_build_foundation_lexicon_keeps_broad_brown_attested_words() -> None:
 
 
 def test_lexicon_json_and_audit_json_are_serialisable(tmp_path) -> None:
-    entry = LexiconWord(
+    entry = lexicon_word(
         word="ship",
-        length=4,
-        letters=("h", "i", "p", "s"),
         tags=("maritime",),
         frequency=12,
         frequency_rank=500,
@@ -171,8 +170,10 @@ def test_lexicon_json_and_audit_json_are_serialisable(tmp_path) -> None:
 
     loaded = json.loads(path.read_text(encoding="utf-8"))
 
-    assert loaded["schema_version"] == 1
+    assert loaded["schema_version"] == 2
     assert loaded["words"][0]["word"] == "ship"
+    assert loaded["words"][0]["morse"] == "... .... .. .--."
+    assert loaded["words"][0]["rhythm_signature"] == "III_IIII_II_IDDI"
     assert audit_to_json([])["domains"] == []
 
 
@@ -194,18 +195,17 @@ def test_lexicon_entries_from_json_rebuilds_word_records() -> None:
 
     entries = lexicon_entries_from_json(data)
 
-    assert entries == [
-        LexiconWord(
-            word="cat",
-            length=3,
-            letters=("a", "c", "t"),
-            tags=("animals",),
-            frequency=4,
-            frequency_rank=200,
-            commonness="common",
-            domain_scores={"animals": 1.0},
-        )
-    ]
+    assert len(entries) == 1
+    assert entries[0].word == "cat"
+    assert entries[0].letters == ("a", "c", "t")
+    assert entries[0].tags == ("animals",)
+    assert entries[0].frequency == 4
+    assert entries[0].frequency_rank == 200
+    assert entries[0].commonness == "common"
+    assert entries[0].domain_scores == {"animals": 1.0}
+    assert entries[0].morse == "-.-. .- -"
+    assert entries[0].rhythm_signature == "DIDI_ID_D"
+    assert entries[0].rhythm_diversity > 0
 
 
 def test_read_lexicon_asset_loads_context_lexicon_json(tmp_path) -> None:
@@ -383,3 +383,79 @@ def test_count_command_reports_total_lengths_and_tags(tmp_path, capsys) -> None:
     assert "3-letter words: 1" in output
     assert "food: 1" in output
     assert "animals" not in output
+
+
+def test_rhythm_metadata_for_generated_lexicon_word() -> None:
+    entry = lexicon_word(
+        word="mud",
+        tags=("nature",),
+        frequency=4,
+        frequency_rank=400,
+        commonness="common",
+        domain_scores={"nature": 1.0},
+    )
+
+    assert entry.morse == "-- ..- -.."
+    assert entry.rhythm_signature == "DD_IID_DII"
+    assert entry.dit_count == 4
+    assert entry.dah_count == 4
+    assert entry.transitions == 3
+    assert entry.repeat_pressure == "medium"
+    assert 0.0 < entry.rhythm_diversity <= 1.0
+
+
+def test_sample_command_prefers_rhythmic_diverse_words(tmp_path, capsys) -> None:
+    path = tmp_path / "context_lexicon.json"
+    write_json_asset(
+        lexicon_to_json(
+            [
+                lexicon_word(
+                    word="mum",
+                    tags=("home",),
+                    frequency=2,
+                    frequency_rank=200,
+                    commonness="common",
+                    domain_scores={"home": 1.0},
+                ),
+                lexicon_word(
+                    word="mud",
+                    tags=("nature",),
+                    frequency=4,
+                    frequency_rank=400,
+                    commonness="common",
+                    domain_scores={"nature": 1.0},
+                ),
+                lexicon_word(
+                    word="era",
+                    tags=("work",),
+                    frequency=3,
+                    frequency_rank=300,
+                    commonness="common",
+                    domain_scores={"work": 1.0},
+                ),
+            ]
+        ),
+        path,
+    )
+
+    exit_code = main(
+        [
+            "sample",
+            "--focus",
+            "mu",
+            "--prefer",
+            "rhythmic-diverse",
+            "--limit",
+            "2",
+            "--lexicon",
+            str(path),
+        ]
+    )
+
+    output = capsys.readouterr().out
+    assert exit_code == 0
+    assert "Matched words: 2" in output
+    assert "Sample preference: rhythmic-diverse" in output
+    assert "Sample words: 2" in output
+    assert "mud: -- ..- -.. | DD_IID_DII" in output
+    assert "rhythm=" in output

@@ -10,6 +10,7 @@ from pathlib import Path
 from .generator import DEFAULT_LENGTHS, generate_word_lists, write_word_lists
 from .lexicon import (
     DEFAULT_DOMAINS,
+    LexiconWord,
     audit_domains,
     audit_to_json,
     build_domain_lexicon,
@@ -22,7 +23,33 @@ from .lexicon import (
     write_json_asset,
 )
 
-LEXICON_COMMANDS = {"build-lexicon", "build-foundation-lexicon", "audit-domains", "count", "select"}
+LEXICON_COMMANDS = {"build-lexicon", "build-foundation-lexicon", "audit-domains", "count", "sample", "select"}
+
+
+def ranked_lexicon_words(entries: Sequence[LexiconWord], rank_by: str) -> list[LexiconWord]:
+    """Return entries ordered for preview output."""
+
+    if rank_by in {"rhythm", "rhythmic-diverse"}:
+        return sorted(
+            entries,
+            key=lambda entry: (
+                -entry.rhythm_diversity,
+                -entry.transitions,
+                -(entry.dit_count + entry.dah_count),
+                entry.word,
+            ),
+        )
+    if rank_by == "frequency":
+        return sorted(
+            entries,
+            key=lambda entry: (
+                entry.frequency_rank is None,
+                entry.frequency_rank if entry.frequency_rank is not None else 10**9,
+                -entry.frequency,
+                entry.word,
+            ),
+        )
+    return sorted(entries, key=lambda entry: entry.word)
 
 
 def add_word_list_arguments(parser: argparse.ArgumentParser) -> None:
@@ -174,6 +201,62 @@ def build_lexicon_parser() -> argparse.ArgumentParser:
         type=Path,
         help="Path to the existing JSON lexicon. Defaults to output/context_lexicon.json.",
     )
+    count_parser.add_argument(
+        "--rank-by",
+        choices=("word", "frequency", "rhythm"),
+        default="word",
+        help="Optional ranking used when previewing words with --limit. Defaults to word.",
+    )
+    count_parser.add_argument(
+        "--limit",
+        default=0,
+        type=int,
+        help="Print the top N matched words after the count. Use with --rank-by rhythm to preview rhythm-rich words.",
+    )
+
+    sample_parser = subparsers.add_parser(
+        "sample",
+        help="Sample a small teaching set from an existing lexicon, optionally preferring rhythmically diverse words.",
+    )
+    sample_parser.add_argument(
+        "--known",
+        help="Optional known letters; sampled words containing any other letters are excluded when supplied.",
+    )
+    sample_parser.add_argument(
+        "--focus",
+        help="Optional focus letters; sampled words must contain at least one of these letters.",
+    )
+    sample_parser.add_argument(
+        "--contains",
+        help="Optional letters to look for anywhere in each sampled word.",
+    )
+    sample_parser.add_argument(
+        "--contains-all",
+        action="store_true",
+        help="When used with --contains, require every contains letter to appear in each sampled word.",
+    )
+    sample_parser.add_argument(
+        "--tag",
+        help="Optional tag to sample within, such as a domain tag or foundation.",
+    )
+    sample_parser.add_argument(
+        "--lexicon",
+        default=Path("output/context_lexicon.json"),
+        type=Path,
+        help="Path to the existing JSON lexicon. Defaults to output/context_lexicon.json.",
+    )
+    sample_parser.add_argument(
+        "--prefer",
+        choices=("word", "frequency", "rhythmic-diverse"),
+        default="rhythmic-diverse",
+        help="Preference used to rank the sample. Defaults to rhythmic-diverse.",
+    )
+    sample_parser.add_argument(
+        "--limit",
+        default=12,
+        type=int,
+        help="Maximum number of sampled words to print. Defaults to 12.",
+    )
 
     select_parser = subparsers.add_parser(
         "select",
@@ -292,6 +375,53 @@ def run_lexicon_command(argv: Sequence[str]) -> int:
             print("Tags:")
             for tag, count in sorted(tag_counts.items(), key=lambda item: (-item[1], item[0])):
                 print(f"  {tag}: {count:,}")
+        if args.limit > 0:
+            print(f"Top {min(args.limit, len(selected)):,} words by {args.rank_by}:")
+            for entry in ranked_lexicon_words(selected, args.rank_by)[: args.limit]:
+                print(
+                    f"  {entry.word}: {entry.morse} | {entry.rhythm_signature} "
+                    f"| rhythm={entry.rhythm_diversity:.3f} "
+                    f"| transitions={entry.transitions} "
+                    f"| repeat={entry.repeat_pressure}"
+                )
+        return 0
+
+    if args.command == "sample":
+        if args.contains_all and not args.contains:
+            parser.error("--contains-all requires --contains")
+        entries = read_lexicon_asset(args.lexicon)
+        selected = matching_words(
+            entries,
+            known_letters=args.known,
+            focus_letters=args.focus,
+            contains_letters=args.contains,
+            require_all_contains=args.contains_all,
+            tag=args.tag,
+        )
+        ranked = ranked_lexicon_words(selected, args.prefer)[: args.limit]
+
+        print(f"Lexicon: {args.lexicon}")
+        if args.known:
+            print(f"Known letters: {args.known}")
+        else:
+            print("Known letters: not restricted")
+        if args.focus:
+            print(f"Focus letters: {args.focus}")
+        if args.contains:
+            contains_mode = "all" if args.contains_all else "any"
+            print(f"Contains letters: {args.contains} ({contains_mode})")
+        if args.tag:
+            print(f"Tag: {args.tag}")
+        print(f"Matched words: {len(selected):,}")
+        print(f"Sample preference: {args.prefer}")
+        print(f"Sample words: {len(ranked):,}")
+        for entry in ranked:
+            print(
+                f"  {entry.word}: {entry.morse} | {entry.rhythm_signature} "
+                f"| rhythm={entry.rhythm_diversity:.3f} "
+                f"| transitions={entry.transitions} "
+                f"| repeat={entry.repeat_pressure}"
+            )
         return 0
 
     if args.command == "select":

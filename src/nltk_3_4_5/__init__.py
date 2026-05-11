@@ -10,7 +10,11 @@ from .lexicon import (
     build_foundation_lexicon,
     lexicon_entries_from_json,
     matching_words,
+    morse_for_word,
     read_lexicon_asset,
+    rhythm_diversity_for_word,
+    rhythm_metadata_for_word,
+    rhythm_signature_for_word,
     selectable_words,
 )
 
@@ -25,7 +29,11 @@ __all__ = [
     "generate_word_lists",
     "lexicon_entries_from_json",
     "matching_words",
+    "morse_for_word",
     "read_lexicon_asset",
+    "rhythm_diversity_for_word",
+    "rhythm_metadata_for_word",
+    "rhythm_signature_for_word",
     "selectable_words",
     "write_word_lists",
 ]
