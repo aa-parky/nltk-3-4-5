@@ -461,6 +461,121 @@ def test_sample_command_prefers_rhythmic_diverse_words(tmp_path, capsys) -> None
     assert "rhythm=" in output
 
 
+def test_sample_command_limit_zero_prints_full_ranked_matched_set(tmp_path, capsys) -> None:
+    path = tmp_path / "context_lexicon.json"
+    write_json_asset(
+        lexicon_to_json(
+            [
+                lexicon_word(
+                    word="mum",
+                    tags=("home",),
+                    frequency=2,
+                    frequency_rank=300,
+                    commonness="common",
+                    domain_scores={"home": 1.0},
+                ),
+                lexicon_word(
+                    word="mud",
+                    tags=("nature",),
+                    frequency=4,
+                    frequency_rank=100,
+                    commonness="common",
+                    domain_scores={"nature": 1.0},
+                ),
+                lexicon_word(
+                    word="emu",
+                    tags=("animals",),
+                    frequency=3,
+                    frequency_rank=200,
+                    commonness="common",
+                    domain_scores={"animals": 1.0},
+                ),
+            ]
+        ),
+        path,
+    )
+
+    exit_code = main(
+        [
+            "sample",
+            "--focus",
+            "mu",
+            "--prefer",
+            "frequency",
+            "--limit",
+            "0",
+            "--lexicon",
+            str(path),
+        ]
+    )
+
+    output = capsys.readouterr().out
+    assert exit_code == 0
+    assert "Matched words: 3" in output
+    assert "Sample preference: frequency" in output
+    assert "Sample words: 3" in output
+    assert output.index("mud:") < output.index("emu:") < output.index("mum:")
+
+
+def test_sample_command_random_preference_uses_unbiased_random_order(tmp_path, capsys, monkeypatch) -> None:
+    path = tmp_path / "context_lexicon.json"
+    write_json_asset(
+        lexicon_to_json(
+            [
+                lexicon_word(
+                    word="mum",
+                    tags=("home",),
+                    frequency=2,
+                    frequency_rank=200,
+                    commonness="common",
+                    domain_scores={"home": 1.0},
+                ),
+                lexicon_word(
+                    word="mud",
+                    tags=("nature",),
+                    frequency=4,
+                    frequency_rank=400,
+                    commonness="common",
+                    domain_scores={"nature": 1.0},
+                ),
+                lexicon_word(
+                    word="emu",
+                    tags=("animals",),
+                    frequency=3,
+                    frequency_rank=300,
+                    commonness="common",
+                    domain_scores={"animals": 1.0},
+                ),
+            ]
+        ),
+        path,
+    )
+    monkeypatch.setattr("nltk_3_4_5.cli.random.shuffle", lambda entries: entries.reverse())
+
+    exit_code = main(
+        [
+            "sample",
+            "--focus",
+            "mu",
+            "--prefer",
+            "random",
+            "--limit",
+            "2",
+            "--lexicon",
+            str(path),
+        ]
+    )
+
+    output = capsys.readouterr().out
+    assert exit_code == 0
+    assert "Matched words: 3" in output
+    assert "Sample preference: random" in output
+    assert "Sample words: 2" in output
+    assert output.index("emu:") < output.index("mud:")
+    assert "mum:" not in output
+    assert "rhythm=" in output
+
+
 def test_sample_command_balances_multiple_focus_letters_when_rhythmic(tmp_path, capsys) -> None:
     path = tmp_path / "context_lexicon.json"
     write_json_asset(

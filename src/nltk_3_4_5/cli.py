@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import random
 from collections import Counter
 from collections.abc import Sequence
 from pathlib import Path
@@ -29,6 +30,10 @@ LEXICON_COMMANDS = {"build-lexicon", "build-foundation-lexicon", "audit-domains"
 def ranked_lexicon_words(entries: Sequence[LexiconWord], rank_by: str) -> list[LexiconWord]:
     """Return entries ordered for preview output."""
 
+    if rank_by == "random":
+        ranked = list(entries)
+        random.shuffle(ranked)
+        return ranked
     if rank_by in {"rhythm", "rhythmic-diverse"}:
         return sorted(
             entries,
@@ -63,7 +68,9 @@ def focus_balanced_sample(
     """Return a small sample, balancing focus-letter exposure when rhythm is preferred."""
 
     ranked = ranked_lexicon_words(entries, prefer)
-    if limit <= 0 or prefer != "rhythmic-diverse":
+    if limit <= 0:
+        return ranked
+    if prefer != "rhythmic-diverse":
         return ranked[:limit]
 
     target_letters = set((focus_letters or "") + (contains_letters or ""))
@@ -295,18 +302,19 @@ def build_lexicon_parser() -> argparse.ArgumentParser:
     )
     sample_parser.add_argument(
         "--prefer",
-        choices=("word", "frequency", "rhythmic-diverse"),
+        choices=("word", "frequency", "rhythmic-diverse", "random"),
         default="rhythmic-diverse",
         help=(
-            "Preference used to rank the sample. Defaults to rhythmic-diverse; when multiple focus "
-            "letters are supplied, rhythmic-diverse also balances exposure across those letters."
+            "Preference used to rank the sample. Defaults to rhythmic-diverse; random draws from "
+            "the matched set without rhythm or frequency bias. When multiple focus letters are supplied, "
+            "rhythmic-diverse also balances exposure across those letters."
         ),
     )
     sample_parser.add_argument(
         "--limit",
         default=12,
         type=int,
-        help="Maximum number of sampled words to print. Defaults to 12.",
+        help="Maximum number of sampled words to print. Defaults to 12; use 0 to print the full matched set.",
     )
 
     select_parser = subparsers.add_parser(
