@@ -216,3 +216,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Project-generated word-list outputs
+output/*.txt
+!output/.gitkeep
+
+# Local NLTK data, if configured inside the repository
+.nltk_data/
