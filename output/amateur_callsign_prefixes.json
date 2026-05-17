@@ -1,0 +1,5745 @@
+{
+  "schema_version": "1.0.0",
+  "title": "Amateur Callsign Prefixes",
+  "description": "Structured representation of RSGB amateur callsign prefix entries, preserving the original line text and parsed prefix, entity, and cross-reference fields.",
+  "source": {
+    "name": "Radio Society of Great Britain International Prefixes",
+    "publisher": "Radio Society of Great Britain (RSGB)",
+    "url": "https://rsgb.org/main/operating/licensing-novs-visitors/international-prefixes/",
+    "accessed_date": "2026-05-17",
+    "source_update_information": null,
+    "source_note": "The RSGB page states that the list shows amateur callsign prefixes currently in use and notes that the ITU has not authorised any 1x and Qx series callsigns."
+  },
+  "field_definitions": {
+    "sequence": "Original order in the cleaned RSGB-derived list after merging obvious line-wrap fragments.",
+    "prefixes": "Leading amateur callsign prefix codes, compact wildcard terms, or compact prefix ranges parsed from the entry.",
+    "entity": "Country, territory, island, organisation, or administrative entity associated with the prefix entry.",
+    "cross_references": "Trailing related, prior, alternate, or parent prefix codes shown in the source line.",
+    "status_note": "Machine-readable note for entries affected by visible RSGB caveats or source formatting issues.",
+    "raw_entry": "Original source entry text after whitespace and dash normalisation and after joining clear continuation lines.",
+    "group": "First character of the first parsed prefix, for coarse grouping.",
+    "notes": "Optional editorial note explaining source formatting issues preserved in the record."
+  },
+  "statistics": {
+    "entry_count": 471,
+    "group_counts": {
+      "1": 4,
+      "2": 7,
+      "3": 19,
+      "4": 18,
+      "5": 15,
+      "6": 8,
+      "7": 7,
+      "8": 7,
+      "9": 17,
+      "A": 17,
+      "B": 6,
+      "C": 22,
+      "D": 8,
+      "E": 22,
+      "F": 23,
+      "G": 8,
+      "H": 29,
+      "I": 2,
+      "J": 14,
+      "K": 21,
+      "L": 6,
+      "M": 7,
+      "N": 4,
+      "O": 12,
+      "P": 14,
+      "R": 6,
+      "S": 17,
+      "T": 30,
+      "U": 6,
+      "V": 41,
+      "W": 4,
+      "X": 12,
+      "Y": 14,
+      "Z": 24
+    }
+  },
+  "entries": [
+    {
+      "sequence": 1,
+      "prefixes": [
+        "A2"
+      ],
+      "entity": "Botswana",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "A2 Botswana",
+      "group": "A"
+    },
+    {
+      "sequence": 2,
+      "prefixes": [
+        "A3"
+      ],
+      "entity": "Tonga",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "A3 Tonga",
+      "group": "A"
+    },
+    {
+      "sequence": 3,
+      "prefixes": [
+        "A4"
+      ],
+      "entity": "Sultanate of Oman",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "A4 Sultanate of Oman",
+      "group": "A"
+    },
+    {
+      "sequence": 4,
+      "prefixes": [
+        "A5"
+      ],
+      "entity": "Bhutan",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "A5 Bhutan",
+      "group": "A"
+    },
+    {
+      "sequence": 5,
+      "prefixes": [
+        "A6"
+      ],
+      "entity": "United Arab Emirates",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "A6 United Arab Emirates",
+      "group": "A"
+    },
+    {
+      "sequence": 6,
+      "prefixes": [
+        "A7"
+      ],
+      "entity": "Qatar",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "A7 Qatar",
+      "group": "A"
+    },
+    {
+      "sequence": 7,
+      "prefixes": [
+        "A8"
+      ],
+      "entity": "Liberia",
+      "cross_references": [
+        "EL"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "A8 Liberia EL",
+      "group": "A"
+    },
+    {
+      "sequence": 8,
+      "prefixes": [
+        "A9"
+      ],
+      "entity": "Bahrain",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "A9 Bahrain",
+      "group": "A"
+    },
+    {
+      "sequence": 9,
+      "prefixes": [
+        "AA-AG"
+      ],
+      "entity": "USA",
+      "cross_references": [
+        "W"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "AA-AG USA W",
+      "group": "A"
+    },
+    {
+      "sequence": 10,
+      "prefixes": [
+        "AH1-AH0"
+      ],
+      "entity": "USA Pacific Islands",
+      "cross_references": [
+        "KH1-KH0"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "AH1-AH0 USA Pacific Islands KH1-KH0",
+      "group": "A"
+    },
+    {
+      "sequence": 11,
+      "prefixes": [
+        "AI-AK"
+      ],
+      "entity": "USA",
+      "cross_references": [
+        "W"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "AI-AK USA W",
+      "group": "A"
+    },
+    {
+      "sequence": 12,
+      "prefixes": [
+        "AL"
+      ],
+      "entity": "Alaska",
+      "cross_references": [
+        "KL"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "AL Alaska KL",
+      "group": "A"
+    },
+    {
+      "sequence": 13,
+      "prefixes": [
+        "AM-AO"
+      ],
+      "entity": "Spain including overseas Territories and Islands",
+      "cross_references": [
+        "EA",
+        "6",
+        "8",
+        "9"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "AM-AO Spain including overseas Territories and Islands EA 6 8 9",
+      "group": "A"
+    },
+    {
+      "sequence": 14,
+      "prefixes": [
+        "AP-AR"
+      ],
+      "entity": "Pakistan",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "AP-AR Pakistan",
+      "group": "A"
+    },
+    {
+      "sequence": 15,
+      "prefixes": [
+        "AT"
+      ],
+      "entity": "India",
+      "cross_references": [
+        "VU"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "AT India VU",
+      "group": "A"
+    },
+    {
+      "sequence": 16,
+      "prefixes": [
+        "AX"
+      ],
+      "entity": "Australia and Islands",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "AX Australia and Islands",
+      "group": "A"
+    },
+    {
+      "sequence": 17,
+      "prefixes": [
+        "AY-AZ"
+      ],
+      "entity": "Argentina",
+      "cross_references": [
+        "LU"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "AY-AZ Argentina LU",
+      "group": "A"
+    },
+    {
+      "sequence": 18,
+      "prefixes": [
+        "BO"
+      ],
+      "entity": "Quemoy Matsu",
+      "cross_references": [
+        "BV"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "BO Quemoy Matsu BV",
+      "group": "B"
+    },
+    {
+      "sequence": 19,
+      "prefixes": [
+        "BS"
+      ],
+      "entity": "Scarborough Reef",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "BS Scarborough Reef",
+      "group": "B"
+    },
+    {
+      "sequence": 20,
+      "prefixes": [
+        "BV"
+      ],
+      "entity": "Taiwan",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "BV Taiwan",
+      "group": "B"
+    },
+    {
+      "sequence": 21,
+      "prefixes": [
+        "BV9P"
+      ],
+      "entity": "Pratas I.",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "BV9P Pratas I.",
+      "group": "B"
+    },
+    {
+      "sequence": 22,
+      "prefixes": [
+        "BV9S"
+      ],
+      "entity": "Spratly Archipelago",
+      "cross_references": [
+        "9M0"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "BV9S Spratly Archipelago 9M0",
+      "group": "B"
+    },
+    {
+      "sequence": 23,
+      "prefixes": [
+        "BY"
+      ],
+      "entity": "China",
+      "cross_references": [
+        "BA",
+        "BD",
+        "BG",
+        "BT",
+        "BZ"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "BY China BA BD BG BT BZ",
+      "group": "B"
+    },
+    {
+      "sequence": 24,
+      "prefixes": [
+        "C2"
+      ],
+      "entity": "Nauru",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "C2 Nauru",
+      "group": "C"
+    },
+    {
+      "sequence": 25,
+      "prefixes": [
+        "C3"
+      ],
+      "entity": "Andorra",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "C3 Andorra",
+      "group": "C"
+    },
+    {
+      "sequence": 26,
+      "prefixes": [
+        "C4"
+      ],
+      "entity": "Cyprus",
+      "cross_references": [
+        "5B"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "C4 Cyprus 5B",
+      "group": "C"
+    },
+    {
+      "sequence": 27,
+      "prefixes": [
+        "C5"
+      ],
+      "entity": "Gambia",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "C5 Gambia",
+      "group": "C"
+    },
+    {
+      "sequence": 28,
+      "prefixes": [
+        "C6"
+      ],
+      "entity": "Bahamas",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "C6 Bahamas",
+      "group": "C"
+    },
+    {
+      "sequence": 29,
+      "prefixes": [
+        "C8",
+        "C9"
+      ],
+      "entity": "Mozambique",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "C8, C9 Mozambique",
+      "group": "C"
+    },
+    {
+      "sequence": 30,
+      "prefixes": [
+        "CE"
+      ],
+      "entity": "Chile",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "CE Chile",
+      "group": "C"
+    },
+    {
+      "sequence": 31,
+      "prefixes": [
+        "CE0"
+      ],
+      "entity": "Easter I.",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "CE0 Easter I.",
+      "group": "C"
+    },
+    {
+      "sequence": 32,
+      "prefixes": [
+        "CE0"
+      ],
+      "entity": "San Felix and San Ambrosio Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "CE0 San Felix and San Ambrosio Is",
+      "group": "C"
+    },
+    {
+      "sequence": 33,
+      "prefixes": [
+        "CE0"
+      ],
+      "entity": "Juan Fernandez Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "CE0 Juan Fernandez Is",
+      "group": "C"
+    },
+    {
+      "sequence": 34,
+      "prefixes": [
+        "CF-CK"
+      ],
+      "entity": "Canada",
+      "cross_references": [
+        "VE"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "CF-CK Canada VE",
+      "group": "C"
+    },
+    {
+      "sequence": 35,
+      "prefixes": [
+        "CL",
+        "CM"
+      ],
+      "entity": "Cuba",
+      "cross_references": [
+        "CO"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "CL CM Cuba CO",
+      "group": "C"
+    },
+    {
+      "sequence": 36,
+      "prefixes": [
+        "CN"
+      ],
+      "entity": "Morocco",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "CN Morocco",
+      "group": "C"
+    },
+    {
+      "sequence": 37,
+      "prefixes": [
+        "CO"
+      ],
+      "entity": "Cuba",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "CO Cuba",
+      "group": "C"
+    },
+    {
+      "sequence": 38,
+      "prefixes": [
+        "CP"
+      ],
+      "entity": "Bolivia",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "CP Bolivia",
+      "group": "C"
+    },
+    {
+      "sequence": 39,
+      "prefixes": [
+        "CT1CQ-CT2",
+        "4-8",
+        "0"
+      ],
+      "entity": "Portugal",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "CT1CQ-CT2 4-8 0 Portugal",
+      "group": "C"
+    },
+    {
+      "sequence": 40,
+      "prefixes": [
+        "CT3",
+        "CQ-CS3",
+        "CT9"
+      ],
+      "entity": "Madeira Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "CT3 CQ-CS3 CT9 Madeira Is",
+      "group": "C"
+    },
+    {
+      "sequence": 41,
+      "prefixes": [
+        "CU"
+      ],
+      "entity": "Azores",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "CU Azores",
+      "group": "C"
+    },
+    {
+      "sequence": 42,
+      "prefixes": [
+        "CX",
+        "CV",
+        "CW"
+      ],
+      "entity": "Uruguay",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "CX CV CW Uruguay",
+      "group": "C"
+    },
+    {
+      "sequence": 43,
+      "prefixes": [
+        "CY",
+        "CZ"
+      ],
+      "entity": "Canada",
+      "cross_references": [
+        "VE"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "CY CZ Canada VE",
+      "group": "C"
+    },
+    {
+      "sequence": 44,
+      "prefixes": [
+        "CY9"
+      ],
+      "entity": "St Paul Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "CY9 St Paul Is",
+      "group": "C"
+    },
+    {
+      "sequence": 45,
+      "prefixes": [
+        "CY0"
+      ],
+      "entity": "Sable I.",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "CY0 Sable I.",
+      "group": "C"
+    },
+    {
+      "sequence": 46,
+      "prefixes": [
+        "D2",
+        "D3"
+      ],
+      "entity": "Angola",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "D2 D3 Angola",
+      "group": "D"
+    },
+    {
+      "sequence": 47,
+      "prefixes": [
+        "D4"
+      ],
+      "entity": "Cape Verde",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "D4 Cape Verde",
+      "group": "D"
+    },
+    {
+      "sequence": 48,
+      "prefixes": [
+        "D6"
+      ],
+      "entity": "Comoros",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "D6 Comoros",
+      "group": "D"
+    },
+    {
+      "sequence": 49,
+      "prefixes": [
+        "D7"
+      ],
+      "entity": "Korea (Republic of)",
+      "cross_references": [
+        "HL"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "D7 Korea (Republic of) HL",
+      "group": "D"
+    },
+    {
+      "sequence": 50,
+      "prefixes": [
+        "DL",
+        "DA-DD",
+        "DF-DH"
+      ],
+      "entity": "Federal Republic DJ DK DP of Germany",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "DL DA-DD DF-DH Federal Republic DJ DK DP of Germany",
+      "group": "D"
+    },
+    {
+      "sequence": 51,
+      "prefixes": [
+        "DS"
+      ],
+      "entity": "Korea (Republic of)",
+      "cross_references": [
+        "HL"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "DS Korea (Republic of) HL",
+      "group": "D"
+    },
+    {
+      "sequence": 52,
+      "prefixes": [
+        "DU",
+        "DV-DZ"
+      ],
+      "entity": "Philippines",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "DU DV-DZ Philippines",
+      "group": "D"
+    },
+    {
+      "sequence": 53,
+      "prefixes": [
+        "DU"
+      ],
+      "entity": "Spratly Archipelago",
+      "cross_references": [
+        "9M0"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "DU Spratly Archipelago 9M0",
+      "group": "D"
+    },
+    {
+      "sequence": 54,
+      "prefixes": [
+        "E2"
+      ],
+      "entity": "Thailand",
+      "cross_references": [
+        "HS"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "E2 Thailand HS",
+      "group": "E"
+    },
+    {
+      "sequence": 55,
+      "prefixes": [
+        "E3"
+      ],
+      "entity": "Eritrea",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "E3 Eritrea",
+      "group": "E"
+    },
+    {
+      "sequence": 56,
+      "prefixes": [
+        "E4"
+      ],
+      "entity": "Palestine",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "E4 Palestine",
+      "group": "E"
+    },
+    {
+      "sequence": 57,
+      "prefixes": [
+        "E5"
+      ],
+      "entity": "Cook Islands (New Zealand)",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "E5 Cook Islands (New Zealand)",
+      "group": "E"
+    },
+    {
+      "sequence": 58,
+      "prefixes": [
+        "E7"
+      ],
+      "entity": "Bosnia-Herzegovina (was",
+      "cross_references": [
+        "T9"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "E7 Bosnia-Herzegovina (was T9)",
+      "group": "E"
+    },
+    {
+      "sequence": 59,
+      "prefixes": [
+        "E6"
+      ],
+      "entity": "Niue (New Zealand)",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "E6 Niue (New Zealand)",
+      "group": "E"
+    },
+    {
+      "sequence": 60,
+      "prefixes": [
+        "EA",
+        "EB-EH1-5",
+        "7",
+        "0"
+      ],
+      "entity": "Spain",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "EA EB-EH1-5 7 0 Spain",
+      "group": "E"
+    },
+    {
+      "sequence": 61,
+      "prefixes": [
+        "EA6",
+        "EB6-EH6"
+      ],
+      "entity": "Balearic Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "EA6 EB6-EH6 Balearic Is",
+      "group": "E"
+    },
+    {
+      "sequence": 62,
+      "prefixes": [
+        "EA8",
+        "EB8-EH8"
+      ],
+      "entity": "Canary Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "EA8 EB8-EH8 Canary Is",
+      "group": "E"
+    },
+    {
+      "sequence": 63,
+      "prefixes": [
+        "EA9",
+        "EB9-EH9"
+      ],
+      "entity": "Ceuta and Melilla",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "EA9 EB9-EH9 Ceuta and Melilla",
+      "group": "E"
+    },
+    {
+      "sequence": 64,
+      "prefixes": [
+        "EI-EJ"
+      ],
+      "entity": "Republic of Ireland",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "EI-EJ Republic of Ireland",
+      "group": "E"
+    },
+    {
+      "sequence": 65,
+      "prefixes": [
+        "EK"
+      ],
+      "entity": "Armenia",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "EK Armenia",
+      "group": "E"
+    },
+    {
+      "sequence": 66,
+      "prefixes": [
+        "EL"
+      ],
+      "entity": "Liberia",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "EL Liberia",
+      "group": "E"
+    },
+    {
+      "sequence": 67,
+      "prefixes": [
+        "EM",
+        "EN",
+        "EO"
+      ],
+      "entity": "Ukraine",
+      "cross_references": [
+        "UR"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "EM EN EO Ukraine UR",
+      "group": "E"
+    },
+    {
+      "sequence": 68,
+      "prefixes": [
+        "EP"
+      ],
+      "entity": "Iran",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "EP Iran",
+      "group": "E"
+    },
+    {
+      "sequence": 69,
+      "prefixes": [
+        "ER"
+      ],
+      "entity": "Moldova",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "ER Moldova",
+      "group": "E"
+    },
+    {
+      "sequence": 70,
+      "prefixes": [
+        "ES"
+      ],
+      "entity": "Estonia",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "ES Estonia",
+      "group": "E"
+    },
+    {
+      "sequence": 71,
+      "prefixes": [
+        "ET"
+      ],
+      "entity": "Ethiopia",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "ET Ethiopia",
+      "group": "E"
+    },
+    {
+      "sequence": 72,
+      "prefixes": [
+        "EU",
+        "EV",
+        "EW"
+      ],
+      "entity": "Belarus",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "EU EV EW Belarus",
+      "group": "E"
+    },
+    {
+      "sequence": 73,
+      "prefixes": [
+        "EX"
+      ],
+      "entity": "Kyrghyzstan",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "EX Kyrghyzstan",
+      "group": "E"
+    },
+    {
+      "sequence": 74,
+      "prefixes": [
+        "EY"
+      ],
+      "entity": "Tajikistan",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "EY Tajikistan",
+      "group": "E"
+    },
+    {
+      "sequence": 75,
+      "prefixes": [
+        "EZ"
+      ],
+      "entity": "Turkmenistan",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "EZ Turkmenistan",
+      "group": "E"
+    },
+    {
+      "sequence": 76,
+      "prefixes": [
+        "F"
+      ],
+      "entity": "France",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "F France",
+      "group": "F"
+    },
+    {
+      "sequence": 77,
+      "prefixes": [
+        "FG"
+      ],
+      "entity": "Guadeloupe",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "FG Guadeloupe",
+      "group": "F"
+    },
+    {
+      "sequence": 78,
+      "prefixes": [
+        "FH"
+      ],
+      "entity": "Mayotte",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "FH Mayotte",
+      "group": "F"
+    },
+    {
+      "sequence": 79,
+      "prefixes": [
+        "FJ"
+      ],
+      "entity": "St Barthelemy (French St Martin)",
+      "cross_references": [
+        "FS"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "FJ St Barthelemy (French St Martin) FS",
+      "group": "F"
+    },
+    {
+      "sequence": 80,
+      "prefixes": [
+        "FK"
+      ],
+      "entity": "New Caledonia",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "FK New Caledonia",
+      "group": "F"
+    },
+    {
+      "sequence": 81,
+      "prefixes": [
+        "FK--/C"
+      ],
+      "entity": "Chesterfield Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "FK--/C Chesterfield Is",
+      "group": "F"
+    },
+    {
+      "sequence": 82,
+      "prefixes": [
+        "FM"
+      ],
+      "entity": "Martinique",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "FM Martinique",
+      "group": "F"
+    },
+    {
+      "sequence": 83,
+      "prefixes": [
+        "FO"
+      ],
+      "entity": "Austral Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "FO Austral Is",
+      "group": "F"
+    },
+    {
+      "sequence": 84,
+      "prefixes": [
+        "FO"
+      ],
+      "entity": "French Polynesia",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "FO French Polynesia",
+      "group": "F"
+    },
+    {
+      "sequence": 85,
+      "prefixes": [
+        "FO"
+      ],
+      "entity": "Marquesas Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "FO Marquesas Is",
+      "group": "F"
+    },
+    {
+      "sequence": 86,
+      "prefixes": [
+        "FO8X"
+      ],
+      "entity": "Clipperton I.",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "FO8X Clipperton I.",
+      "group": "F"
+    },
+    {
+      "sequence": 87,
+      "prefixes": [
+        "FP"
+      ],
+      "entity": "St Pierre and Miquelon",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "FP St Pierre and Miquelon",
+      "group": "F"
+    },
+    {
+      "sequence": 88,
+      "prefixes": [
+        "FR"
+      ],
+      "entity": "Reunion I.",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "FR Reunion I.",
+      "group": "F"
+    },
+    {
+      "sequence": 89,
+      "prefixes": [
+        "FR--/E"
+      ],
+      "entity": "Europa I.",
+      "cross_references": [
+        "FR--/J"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "FR--/E Europa I. FR--/J",
+      "group": "F"
+    },
+    {
+      "sequence": 90,
+      "prefixes": [
+        "FR--/G"
+      ],
+      "entity": "Glorioso Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "FR--/G Glorioso Is",
+      "group": "F"
+    },
+    {
+      "sequence": 91,
+      "prefixes": [
+        "FR--/J"
+      ],
+      "entity": "Juan de Nova",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "FR--/J Juan de Nova",
+      "group": "F"
+    },
+    {
+      "sequence": 92,
+      "prefixes": [
+        "FR--/T"
+      ],
+      "entity": "Tromelin I.",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "FR--/T Tromelin I.",
+      "group": "F"
+    },
+    {
+      "sequence": 93,
+      "prefixes": [
+        "FS"
+      ],
+      "entity": "French St Martin",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "FS French St Martin",
+      "group": "F"
+    },
+    {
+      "sequence": 94,
+      "prefixes": [
+        "FTnW"
+      ],
+      "entity": "Crozet Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "FTnW Crozet Is",
+      "group": "F"
+    },
+    {
+      "sequence": 95,
+      "prefixes": [
+        "FTnX"
+      ],
+      "entity": "Kerguelen Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "FTnX Kerguelen Is",
+      "group": "F"
+    },
+    {
+      "sequence": 96,
+      "prefixes": [
+        "FTnZ"
+      ],
+      "entity": "Amsterdam I. and St Paul I.",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "FTnZ Amsterdam I. and St Paul I.",
+      "group": "F"
+    },
+    {
+      "sequence": 97,
+      "prefixes": [
+        "FW"
+      ],
+      "entity": "Wallis and Futuna Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "FW Wallis and Futuna Is",
+      "group": "F"
+    },
+    {
+      "sequence": 98,
+      "prefixes": [
+        "FY"
+      ],
+      "entity": "French Guiana",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "FY French Guiana",
+      "group": "F"
+    },
+    {
+      "sequence": 99,
+      "prefixes": [
+        "G",
+        "GX"
+      ],
+      "entity": "England",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "G GX England",
+      "group": "G"
+    },
+    {
+      "sequence": 100,
+      "prefixes": [
+        "GB"
+      ],
+      "entity": "United Kingdom",
+      "cross_references": [
+        "G",
+        "GD",
+        "GI",
+        "GJ",
+        "GM",
+        "GU",
+        "GW"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "GB United Kingdom G GD GI GJ GM GU GW",
+      "group": "G"
+    },
+    {
+      "sequence": 101,
+      "prefixes": [
+        "GD",
+        "GT"
+      ],
+      "entity": "Isle of Man",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "GD GT Isle of Man",
+      "group": "G"
+    },
+    {
+      "sequence": 102,
+      "prefixes": [
+        "GI",
+        "GN"
+      ],
+      "entity": "Northern Ireland",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "GI GN Northern Ireland",
+      "group": "G"
+    },
+    {
+      "sequence": 103,
+      "prefixes": [
+        "GJ",
+        "GH"
+      ],
+      "entity": "Jersey",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "GJ GH Jersey",
+      "group": "G"
+    },
+    {
+      "sequence": 104,
+      "prefixes": [
+        "GM",
+        "GS"
+      ],
+      "entity": "Scotland",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "GM GS Scotland",
+      "group": "G"
+    },
+    {
+      "sequence": 105,
+      "prefixes": [
+        "GU",
+        "GP"
+      ],
+      "entity": "Guernsey and Dependencies",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "GU GP Guernsey and Dependencies",
+      "group": "G"
+    },
+    {
+      "sequence": 106,
+      "prefixes": [
+        "GW",
+        "GC"
+      ],
+      "entity": "Wales",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "GW GC Wales",
+      "group": "G"
+    },
+    {
+      "sequence": 107,
+      "prefixes": [
+        "H2"
+      ],
+      "entity": "Cyprus",
+      "cross_references": [
+        "5B"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "H2 Cyprus 5B",
+      "group": "H"
+    },
+    {
+      "sequence": 108,
+      "prefixes": [
+        "H3"
+      ],
+      "entity": "Panama",
+      "cross_references": [
+        "HP"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "H3 Panama HP",
+      "group": "H"
+    },
+    {
+      "sequence": 109,
+      "prefixes": [
+        "H4"
+      ],
+      "entity": "Solomon Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "H4 Solomon Is",
+      "group": "H"
+    },
+    {
+      "sequence": 110,
+      "prefixes": [
+        "H40"
+      ],
+      "entity": "Temotu Province",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "H40 Temotu Province",
+      "group": "H"
+    },
+    {
+      "sequence": 111,
+      "prefixes": [
+        "H5"
+      ],
+      "entity": "Bophuthatswana",
+      "cross_references": [
+        "ZS"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "H5 Bophuthatswana ZS",
+      "group": "H"
+    },
+    {
+      "sequence": 112,
+      "prefixes": [
+        "H6",
+        "H7"
+      ],
+      "entity": "Nicaragua",
+      "cross_references": [
+        "YN"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "H6 H7 Nicaragua YN",
+      "group": "H"
+    },
+    {
+      "sequence": 113,
+      "prefixes": [
+        "H8",
+        "H9"
+      ],
+      "entity": "Panama",
+      "cross_references": [
+        "HP"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "H8 H9 Panama HP",
+      "group": "H"
+    },
+    {
+      "sequence": 114,
+      "prefixes": [
+        "HA"
+      ],
+      "entity": "Hungary",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "HA Hungary",
+      "group": "H"
+    },
+    {
+      "sequence": 115,
+      "prefixes": [
+        "HB"
+      ],
+      "entity": "Switzerland",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "HB Switzerland",
+      "group": "H"
+    },
+    {
+      "sequence": 116,
+      "prefixes": [
+        "HB0"
+      ],
+      "entity": "Liechtenstein",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "HB0 Liechtenstein",
+      "group": "H"
+    },
+    {
+      "sequence": 117,
+      "prefixes": [
+        "HC",
+        "HD"
+      ],
+      "entity": "Ecuador",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "HC,HD Ecuador",
+      "group": "H"
+    },
+    {
+      "sequence": 118,
+      "prefixes": [
+        "HC8",
+        "HD8"
+      ],
+      "entity": "Galapagos Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "HC8,HD8 Galapagos Is",
+      "group": "H"
+    },
+    {
+      "sequence": 119,
+      "prefixes": [
+        "HE"
+      ],
+      "entity": "Switzerland",
+      "cross_references": [
+        "HB"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "HE Switzerland HB",
+      "group": "H"
+    },
+    {
+      "sequence": 120,
+      "prefixes": [
+        "HF"
+      ],
+      "entity": "Poland",
+      "cross_references": [
+        "SP"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "HF Poland SP",
+      "group": "H"
+    },
+    {
+      "sequence": 121,
+      "prefixes": [
+        "HG"
+      ],
+      "entity": "Hungary",
+      "cross_references": [
+        "HA"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "HG Hungary HA",
+      "group": "H"
+    },
+    {
+      "sequence": 122,
+      "prefixes": [
+        "HH"
+      ],
+      "entity": "Haiti",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "HH Haiti",
+      "group": "H"
+    },
+    {
+      "sequence": 123,
+      "prefixes": [
+        "HI"
+      ],
+      "entity": "Dominican Republic",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "HI Dominican Republic",
+      "group": "H"
+    },
+    {
+      "sequence": 124,
+      "prefixes": [
+        "HK",
+        "HJ"
+      ],
+      "entity": "Colombia",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "HK HJ Colombia",
+      "group": "H"
+    },
+    {
+      "sequence": 125,
+      "prefixes": [
+        "HK0"
+      ],
+      "entity": "Malpelo I.",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "HK0 Malpelo I.",
+      "group": "H"
+    },
+    {
+      "sequence": 126,
+      "prefixes": [
+        "HK0",
+        "HJ0"
+      ],
+      "entity": "San Andres and Providencia",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "HK0 HJ0 San Andres and Providencia",
+      "group": "H"
+    },
+    {
+      "sequence": 127,
+      "prefixes": [
+        "HL"
+      ],
+      "entity": "Korea (Republic of)",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "HL Korea (Republic of)",
+      "group": "H"
+    },
+    {
+      "sequence": 128,
+      "prefixes": [
+        "HP",
+        "HO"
+      ],
+      "entity": "Panama",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "HP HO Panama",
+      "group": "H"
+    },
+    {
+      "sequence": 129,
+      "prefixes": [
+        "HR",
+        "HQ"
+      ],
+      "entity": "Honduras",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "HR HQ Honduras",
+      "group": "H"
+    },
+    {
+      "sequence": 130,
+      "prefixes": [
+        "HS"
+      ],
+      "entity": "Thailand",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "HS Thailand",
+      "group": "H"
+    },
+    {
+      "sequence": 131,
+      "prefixes": [
+        "HT"
+      ],
+      "entity": "Nicaragua",
+      "cross_references": [
+        "YN"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "HT Nicaragua YN",
+      "group": "H"
+    },
+    {
+      "sequence": 132,
+      "prefixes": [
+        "HU"
+      ],
+      "entity": "El Salvador",
+      "cross_references": [
+        "YS"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "HU El Salvador YS",
+      "group": "H"
+    },
+    {
+      "sequence": 133,
+      "prefixes": [
+        "HV"
+      ],
+      "entity": "Vatican City",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "HV Vatican City",
+      "group": "H"
+    },
+    {
+      "sequence": 134,
+      "prefixes": [
+        "HZ"
+      ],
+      "entity": "Saudi Arabia",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "HZ Saudi Arabia",
+      "group": "H"
+    },
+    {
+      "sequence": 135,
+      "prefixes": [
+        "I",
+        "IA-IH",
+        "IK",
+        "IL",
+        "IN",
+        "IP"
+      ],
+      "entity": "Italy",
+      "cross_references": [
+        "IR",
+        "IT",
+        "IV-IX"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "I IA-IH IK IL IN IP Italy IR IT IV-IX",
+      "group": "I"
+    },
+    {
+      "sequence": 136,
+      "prefixes": [
+        "IS0",
+        "IM0"
+      ],
+      "entity": "Sardinia",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "IS0 IM0 Sardinia",
+      "group": "I"
+    },
+    {
+      "sequence": 137,
+      "prefixes": [
+        "J2"
+      ],
+      "entity": "Djibouti",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "J2 Djibouti",
+      "group": "J"
+    },
+    {
+      "sequence": 138,
+      "prefixes": [
+        "J3"
+      ],
+      "entity": "Grenada",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "J3 Grenada",
+      "group": "J"
+    },
+    {
+      "sequence": 139,
+      "prefixes": [
+        "J4"
+      ],
+      "entity": "Greece",
+      "cross_references": [
+        "SV"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "J4 Greece SV",
+      "group": "J"
+    },
+    {
+      "sequence": 140,
+      "prefixes": [
+        "J5"
+      ],
+      "entity": "Guinea-Bissau",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "J5 Guinea-Bissau",
+      "group": "J"
+    },
+    {
+      "sequence": 141,
+      "prefixes": [
+        "J6"
+      ],
+      "entity": "St Lucia",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "J6 St Lucia",
+      "group": "J"
+    },
+    {
+      "sequence": 142,
+      "prefixes": [
+        "J7"
+      ],
+      "entity": "Dominica",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "J7 Dominica",
+      "group": "J"
+    },
+    {
+      "sequence": 143,
+      "prefixes": [
+        "J8"
+      ],
+      "entity": "St Vincent and the Grenadines",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "J8 St Vincent and the Grenadines",
+      "group": "J"
+    },
+    {
+      "sequence": 144,
+      "prefixes": [
+        "JA",
+        "JE-JS"
+      ],
+      "entity": "Japan",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "JA JE-JS Japan",
+      "group": "J"
+    },
+    {
+      "sequence": 145,
+      "prefixes": [
+        "JD",
+        "7J"
+      ],
+      "entity": "Minami Torishima",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "JD 7J Minami Torishima",
+      "group": "J"
+    },
+    {
+      "sequence": 146,
+      "prefixes": [
+        "JD",
+        "7J"
+      ],
+      "entity": "Ogasawara Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "JD 7J Ogasawara Is",
+      "group": "J"
+    },
+    {
+      "sequence": 147,
+      "prefixes": [
+        "JT",
+        "JU",
+        "JV"
+      ],
+      "entity": "Mongolia",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "JT JU JV Mongolia",
+      "group": "J"
+    },
+    {
+      "sequence": 148,
+      "prefixes": [
+        "JW"
+      ],
+      "entity": "Svalbard",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "JW Svalbard",
+      "group": "J"
+    },
+    {
+      "sequence": 149,
+      "prefixes": [
+        "JX"
+      ],
+      "entity": "Jan Mayen",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "JX Jan Mayen",
+      "group": "J"
+    },
+    {
+      "sequence": 150,
+      "prefixes": [
+        "JY"
+      ],
+      "entity": "Jordan",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "JY Jordan",
+      "group": "J"
+    },
+    {
+      "sequence": 151,
+      "prefixes": [
+        "K",
+        "KA-KZ"
+      ],
+      "entity": "USA and US Islands",
+      "cross_references": [
+        "W",
+        "KC6xx",
+        "KG4xx",
+        "KH1-0",
+        "KP1-5"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "K KA-KZ USA and US Islands W KC6xx KG4xx KH1-0 KP1-5",
+      "group": "K"
+    },
+    {
+      "sequence": 152,
+      "prefixes": [
+        "KC6",
+        "x",
+        "x"
+      ],
+      "entity": "Republic of Palau",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "KC6 x x Republic of Palau",
+      "group": "K"
+    },
+    {
+      "sequence": 153,
+      "prefixes": [
+        "KG4",
+        "x",
+        "x"
+      ],
+      "entity": "Guantanamo Bay",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "KG4 x x Guantanamo Bay",
+      "group": "K"
+    },
+    {
+      "sequence": 154,
+      "prefixes": [
+        "KG6",
+        "x",
+        "x"
+      ],
+      "entity": "Guam",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "KG6 x x Guam",
+      "group": "K"
+    },
+    {
+      "sequence": 155,
+      "prefixes": [
+        "KH1"
+      ],
+      "entity": "Baker I. and Howland I.",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "KH1 Baker I. and Howland I.",
+      "group": "K"
+    },
+    {
+      "sequence": 156,
+      "prefixes": [
+        "KH2"
+      ],
+      "entity": "( KG6 ) Guam",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "KH2 ( KG6 ) Guam",
+      "group": "K"
+    },
+    {
+      "sequence": 157,
+      "prefixes": [
+        "KH3"
+      ],
+      "entity": "Johnston I.",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "KH3 Johnston I.",
+      "group": "K"
+    },
+    {
+      "sequence": 158,
+      "prefixes": [
+        "KH4"
+      ],
+      "entity": "Midway Is.",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "KH4 Midway Is.",
+      "group": "K"
+    },
+    {
+      "sequence": 159,
+      "prefixes": [
+        "KH5"
+      ],
+      "entity": "Palmyra I.",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "KH5 Palmyra I.",
+      "group": "K"
+    },
+    {
+      "sequence": 160,
+      "prefixes": [
+        "KH5J"
+      ],
+      "entity": "Jarvis I.",
+      "cross_references": [
+        "KH5"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "KH5J Jarvis I. KH5",
+      "group": "K"
+    },
+    {
+      "sequence": 161,
+      "prefixes": [
+        "KH5K"
+      ],
+      "entity": "Kingman Reef",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "KH5K Kingman Reef",
+      "group": "K"
+    },
+    {
+      "sequence": 162,
+      "prefixes": [
+        "KH6",
+        "7"
+      ],
+      "entity": "Hawaiian Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "KH6 7 Hawaiian Is",
+      "group": "K"
+    },
+    {
+      "sequence": 163,
+      "prefixes": [
+        "KH7K"
+      ],
+      "entity": "Kure I.",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "KH7K Kure I.",
+      "group": "K"
+    },
+    {
+      "sequence": 164,
+      "prefixes": [
+        "KH8"
+      ],
+      "entity": "American Samoa",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "KH8 American Samoa",
+      "group": "K"
+    },
+    {
+      "sequence": 165,
+      "prefixes": [
+        "KH9"
+      ],
+      "entity": "Wake I.",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "KH9 Wake I.",
+      "group": "K"
+    },
+    {
+      "sequence": 166,
+      "prefixes": [
+        "KH0"
+      ],
+      "entity": "North Mariana",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "KH0 North Mariana",
+      "group": "K"
+    },
+    {
+      "sequence": 167,
+      "prefixes": [
+        "KL"
+      ],
+      "entity": "Alaska",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "KL Alaska",
+      "group": "K"
+    },
+    {
+      "sequence": 168,
+      "prefixes": [
+        "KP1"
+      ],
+      "entity": "Navassa I.",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "KP1 Navassa I.",
+      "group": "K"
+    },
+    {
+      "sequence": 169,
+      "prefixes": [
+        "KP2",
+        "US"
+      ],
+      "entity": "Virgin Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "KP2 US Virgin Is",
+      "group": "K"
+    },
+    {
+      "sequence": 170,
+      "prefixes": [
+        "KP3",
+        "4"
+      ],
+      "entity": "Puerto Rico",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "KP3 4 Puerto Rico",
+      "group": "K"
+    },
+    {
+      "sequence": 171,
+      "prefixes": [
+        "KP5"
+      ],
+      "entity": "Desecheo I.",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "KP5 Desecheo I.",
+      "group": "K"
+    },
+    {
+      "sequence": 172,
+      "prefixes": [
+        "L2-L9"
+      ],
+      "entity": "Argentina",
+      "cross_references": [
+        "LU"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "L2-L9 Argentina LU",
+      "group": "L"
+    },
+    {
+      "sequence": 173,
+      "prefixes": [
+        "LA",
+        "LB",
+        "LC",
+        "LG",
+        "LI"
+      ],
+      "entity": "Norway",
+      "cross_references": [
+        "LJ",
+        "LN"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "LA LB LC LG LI Norway LJ LN",
+      "group": "L"
+    },
+    {
+      "sequence": 174,
+      "prefixes": [
+        "LU",
+        "LO-LT",
+        "LV",
+        "LW"
+      ],
+      "entity": "Argentina",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "LU LO-LT LV LW Argentina",
+      "group": "L"
+    },
+    {
+      "sequence": 175,
+      "prefixes": [
+        "LX"
+      ],
+      "entity": "Luxembourg",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "LX Luxembourg",
+      "group": "L"
+    },
+    {
+      "sequence": 176,
+      "prefixes": [
+        "LY"
+      ],
+      "entity": "Lithuania",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "LY Lithuania",
+      "group": "L"
+    },
+    {
+      "sequence": 177,
+      "prefixes": [
+        "LZ"
+      ],
+      "entity": "Bulgaria",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "LZ Bulgaria",
+      "group": "L"
+    },
+    {
+      "sequence": 178,
+      "prefixes": [
+        "M",
+        "MX"
+      ],
+      "entity": "England",
+      "cross_references": [
+        "G"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "M MX England G",
+      "group": "M"
+    },
+    {
+      "sequence": 179,
+      "prefixes": [
+        "MD",
+        "MT"
+      ],
+      "entity": "Isle of Man",
+      "cross_references": [
+        "GD"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "MD MT Isle of Man GD",
+      "group": "M"
+    },
+    {
+      "sequence": 180,
+      "prefixes": [
+        "MI",
+        "MN"
+      ],
+      "entity": "Northern Ireland",
+      "cross_references": [
+        "GI"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "MI MN Northern Ireland GI",
+      "group": "M"
+    },
+    {
+      "sequence": 181,
+      "prefixes": [
+        "MJ",
+        "MH"
+      ],
+      "entity": "Jersey",
+      "cross_references": [
+        "GJ"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "MJ MH Jersey GJ",
+      "group": "M"
+    },
+    {
+      "sequence": 182,
+      "prefixes": [
+        "MM",
+        "MS"
+      ],
+      "entity": "Scotland",
+      "cross_references": [
+        "GM"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "MM MS Scotland GM",
+      "group": "M"
+    },
+    {
+      "sequence": 183,
+      "prefixes": [
+        "MU",
+        "MP"
+      ],
+      "entity": "Guernsey and Dependencies",
+      "cross_references": [
+        "GU"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "MU MP Guernsey and Dependencies GU",
+      "group": "M"
+    },
+    {
+      "sequence": 184,
+      "prefixes": [
+        "MW",
+        "MC"
+      ],
+      "entity": "Wales",
+      "cross_references": [
+        "GW"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "MW MC Wales GW",
+      "group": "M"
+    },
+    {
+      "sequence": 185,
+      "prefixes": [
+        "N",
+        "NA-NG",
+        "NI-NK"
+      ],
+      "entity": "USA",
+      "cross_references": [
+        "W",
+        "NM-NO",
+        "NQ-NZ"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "N NA-NG NI-NK USA W NM-NO NQ-NZ",
+      "group": "N"
+    },
+    {
+      "sequence": 186,
+      "prefixes": [
+        "NH1-NH0",
+        "US"
+      ],
+      "entity": "Pacific islands",
+      "cross_references": [
+        "KH1-KH0"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "NH1-NH0 US Pacific islands KH1-KH0",
+      "group": "N"
+    },
+    {
+      "sequence": 187,
+      "prefixes": [
+        "NL"
+      ],
+      "entity": "Alaska",
+      "cross_references": [
+        "KL"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "NL Alaska KL",
+      "group": "N"
+    },
+    {
+      "sequence": 188,
+      "prefixes": [
+        "NP1-NP5",
+        "US"
+      ],
+      "entity": "Caribbean Islands",
+      "cross_references": [
+        "KP1-KP5"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "NP1-NP5 US Caribbean Islands KP1-KP5",
+      "group": "N"
+    },
+    {
+      "sequence": 189,
+      "prefixes": [
+        "OA",
+        "OB",
+        "OC"
+      ],
+      "entity": "Peru",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "OA OB OC Peru",
+      "group": "O"
+    },
+    {
+      "sequence": 190,
+      "prefixes": [
+        "OD"
+      ],
+      "entity": "Lebanon",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "OD Lebanon",
+      "group": "O"
+    },
+    {
+      "sequence": 191,
+      "prefixes": [
+        "OE"
+      ],
+      "entity": "Austria",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "OE Austria",
+      "group": "O"
+    },
+    {
+      "sequence": 192,
+      "prefixes": [
+        "OH",
+        "OF",
+        "OG",
+        "OI"
+      ],
+      "entity": "Finland",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "OH OF OG OI Finland",
+      "group": "O"
+    },
+    {
+      "sequence": 193,
+      "prefixes": [
+        "OH0",
+        "OF0",
+        "OG0"
+      ],
+      "entity": "Aland Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "OH0 OF0 OG0 Aland Is",
+      "group": "O"
+    },
+    {
+      "sequence": 194,
+      "prefixes": [
+        "OJ0",
+        "OF0M",
+        "OH0M"
+      ],
+      "entity": "Market Reef",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "OJ0 OF0M OH0M Market Reef",
+      "group": "O"
+    },
+    {
+      "sequence": 195,
+      "prefixes": [
+        "OK",
+        "OL"
+      ],
+      "entity": "Czech Republic",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "OK OL Czech Republic",
+      "group": "O"
+    },
+    {
+      "sequence": 196,
+      "prefixes": [
+        "OM"
+      ],
+      "entity": "Slovak Republic",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "OM Slovak Republic",
+      "group": "O"
+    },
+    {
+      "sequence": 197,
+      "prefixes": [
+        "ON",
+        "OO-OT"
+      ],
+      "entity": "Belgium",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "ON OO-OT Belgium",
+      "group": "O"
+    },
+    {
+      "sequence": 198,
+      "prefixes": [
+        "OX"
+      ],
+      "entity": "Greenland",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "OX Greenland",
+      "group": "O"
+    },
+    {
+      "sequence": 199,
+      "prefixes": [
+        "OY"
+      ],
+      "entity": "Faroe Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "OY Faroe Is",
+      "group": "O"
+    },
+    {
+      "sequence": 200,
+      "prefixes": [
+        "OU",
+        "OZ"
+      ],
+      "entity": "Denmark",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "OU OZ Denmark",
+      "group": "O"
+    },
+    {
+      "sequence": 201,
+      "prefixes": [
+        "P2"
+      ],
+      "entity": "Papua New Guinea",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "P2 Papua New Guinea",
+      "group": "P"
+    },
+    {
+      "sequence": 202,
+      "prefixes": [
+        "P3"
+      ],
+      "entity": "Cyprus",
+      "cross_references": [
+        "5B"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "P3 Cyprus 5B",
+      "group": "P"
+    },
+    {
+      "sequence": 203,
+      "prefixes": [
+        "P4"
+      ],
+      "entity": "Aruba",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "P4 Aruba",
+      "group": "P"
+    },
+    {
+      "sequence": 204,
+      "prefixes": [
+        "P5"
+      ],
+      "entity": "Korea (Dem Peoples Rep of)",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "P5 Korea (Dem Peoples Rep of)",
+      "group": "P"
+    },
+    {
+      "sequence": 205,
+      "prefixes": [
+        "PA"
+      ],
+      "entity": "- PI Netherlands",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "PA - PI Netherlands",
+      "group": "P"
+    },
+    {
+      "sequence": 206,
+      "prefixes": [
+        "PJ1",
+        "PJ2",
+        "4",
+        "9"
+      ],
+      "entity": "Netherlands Antilles",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "PJ1 PJ2 4 9 Netherlands Antilles",
+      "group": "P"
+    },
+    {
+      "sequence": 207,
+      "prefixes": [
+        "PJ5",
+        "PJ6",
+        "7",
+        "8"
+      ],
+      "entity": "Sint Maarten, Saba and St Eustatius",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "PJ5 PJ6 7 8 Sint Maarten, Saba and St Eustatius",
+      "group": "P"
+    },
+    {
+      "sequence": 208,
+      "prefixes": [
+        "PY",
+        "PP-PX"
+      ],
+      "entity": "Brazil",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "PY PP-PX Brazil",
+      "group": "P"
+    },
+    {
+      "sequence": 209,
+      "prefixes": [
+        "PY0F"
+      ],
+      "entity": "Fernando de Noronha Archipelago",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "PY0F Fernando de Noronha Archipelago",
+      "group": "P"
+    },
+    {
+      "sequence": 210,
+      "prefixes": [
+        "PY0M"
+      ],
+      "entity": "Martim Vaz I.",
+      "cross_references": [
+        "PU0T"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "PY0M Martim Vaz I. PU0T",
+      "group": "P"
+    },
+    {
+      "sequence": 211,
+      "prefixes": [
+        "PY0R"
+      ],
+      "entity": "Atol das Rocas",
+      "cross_references": [
+        "PY0F"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "PY0R Atol das Rocas PY0F",
+      "group": "P"
+    },
+    {
+      "sequence": 212,
+      "prefixes": [
+        "PY0S"
+      ],
+      "entity": "St Peter and St Paul Rocks",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "PY0S St Peter and St Paul Rocks",
+      "group": "P"
+    },
+    {
+      "sequence": 213,
+      "prefixes": [
+        "PY0T"
+      ],
+      "entity": "Trindade I.",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "PY0T Trindade I.",
+      "group": "P"
+    },
+    {
+      "sequence": 214,
+      "prefixes": [
+        "PZ"
+      ],
+      "entity": "Suriname",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "PZ Suriname",
+      "group": "P"
+    },
+    {
+      "sequence": 215,
+      "prefixes": [
+        "R1A"
+      ],
+      "entity": "Antarctica",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "R1A Antarctica",
+      "group": "R"
+    },
+    {
+      "sequence": 216,
+      "prefixes": [
+        "R1F"
+      ],
+      "entity": "Franz Josef Land",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "R1F Franz Josef Land",
+      "group": "R"
+    },
+    {
+      "sequence": 217,
+      "prefixes": [
+        "R1M"
+      ],
+      "entity": "Malyj Vysotskij I.",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "R1M Malyj Vysotskij I.",
+      "group": "R"
+    },
+    {
+      "sequence": 218,
+      "prefixes": [
+        "R",
+        "RA",
+        "RK",
+        "RN",
+        "RU-RZ"
+      ],
+      "entity": "European Russia",
+      "cross_references": [
+        "UA"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "R RA RK RN RU-RZ European Russia UA",
+      "group": "R"
+    },
+    {
+      "sequence": 219,
+      "prefixes": [
+        "R",
+        "RA",
+        "RK",
+        "RN",
+        "RU-RZ"
+      ],
+      "entity": "Asiatic Russia",
+      "cross_references": [
+        "UA9"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "R RA RK RN RU-RZ Asiatic Russia UA9",
+      "group": "R"
+    },
+    {
+      "sequence": 220,
+      "prefixes": [
+        "R2",
+        "RA2",
+        "RK2",
+        "RN2",
+        "RY2"
+      ],
+      "entity": "Kaliningradsk",
+      "cross_references": [
+        "UA2"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "R2 RA2 RK2 RN2 RY2 Kaliningradsk UA2",
+      "group": "R"
+    },
+    {
+      "sequence": 221,
+      "prefixes": [
+        "S2"
+      ],
+      "entity": "Bangladesh",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "S2 Bangladesh",
+      "group": "S"
+    },
+    {
+      "sequence": 222,
+      "prefixes": [
+        "S4"
+      ],
+      "entity": "Ciskei",
+      "cross_references": [
+        "ZS"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "S4 Ciskei ZS",
+      "group": "S"
+    },
+    {
+      "sequence": 223,
+      "prefixes": [
+        "S5"
+      ],
+      "entity": "Slovenia",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "S5 Slovenia",
+      "group": "S"
+    },
+    {
+      "sequence": 224,
+      "prefixes": [
+        "S6"
+      ],
+      "entity": "Singapore",
+      "cross_references": [
+        "9V"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "S6 Singapore 9V",
+      "group": "S"
+    },
+    {
+      "sequence": 225,
+      "prefixes": [
+        "S7"
+      ],
+      "entity": "Republic of Seychelles",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "S7 Republic of Seychelles",
+      "group": "S"
+    },
+    {
+      "sequence": 226,
+      "prefixes": [
+        "S8"
+      ],
+      "entity": "Transkei",
+      "cross_references": [
+        "ZS"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "S8 Transkei ZS",
+      "group": "S"
+    },
+    {
+      "sequence": 227,
+      "prefixes": [
+        "S9"
+      ],
+      "entity": "Sao Tome and Principe",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "S9 Sao Tome and Principe",
+      "group": "S"
+    },
+    {
+      "sequence": 228,
+      "prefixes": [
+        "S0"
+      ],
+      "entity": "Western Sahara",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "S0 Western Sahara",
+      "group": "S"
+    },
+    {
+      "sequence": 229,
+      "prefixes": [
+        "SM",
+        "SH-SL"
+      ],
+      "entity": "Sweden",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "SM SH-SL Sweden",
+      "group": "S"
+    },
+    {
+      "sequence": 230,
+      "prefixes": [
+        "SP",
+        "SN-SR"
+      ],
+      "entity": "Poland",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "SP SN-SR Poland",
+      "group": "S"
+    },
+    {
+      "sequence": 231,
+      "prefixes": [
+        "ST"
+      ],
+      "entity": "Republic of the Sudan",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "ST Republic of the Sudan",
+      "group": "S"
+    },
+    {
+      "sequence": 232,
+      "prefixes": [
+        "SU"
+      ],
+      "entity": "Egypt",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "SU Egypt",
+      "group": "S"
+    },
+    {
+      "sequence": 233,
+      "prefixes": [
+        "SV",
+        "SX-SZ"
+      ],
+      "entity": "Greece",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "SV SX-SZ Greece",
+      "group": "S"
+    },
+    {
+      "sequence": 234,
+      "prefixes": [
+        "SV-/A"
+      ],
+      "entity": "Mount Athos",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "SV-/A Mount Athos",
+      "group": "S"
+    },
+    {
+      "sequence": 235,
+      "prefixes": [
+        "SV5"
+      ],
+      "entity": "Dodecanese Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "SV5 Dodecanese Is",
+      "group": "S"
+    },
+    {
+      "sequence": 236,
+      "prefixes": [
+        "SV9"
+      ],
+      "entity": "Crete",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "SV9 Crete",
+      "group": "S"
+    },
+    {
+      "sequence": 237,
+      "prefixes": [
+        "SV0"
+      ],
+      "entity": "Non-nationals in Greece or on Greek Is",
+      "cross_references": [
+        "SV",
+        "SV5",
+        "SV9"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "SV0 Non-nationals in Greece or on Greek Is SV SV5 SV9",
+      "group": "S"
+    },
+    {
+      "sequence": 238,
+      "prefixes": [
+        "T2"
+      ],
+      "entity": "Tuvalu",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "T2 Tuvalu",
+      "group": "T"
+    },
+    {
+      "sequence": 239,
+      "prefixes": [
+        "T30"
+      ],
+      "entity": "West Kiribati",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "T30 West Kiribati",
+      "group": "T"
+    },
+    {
+      "sequence": 240,
+      "prefixes": [
+        "T31"
+      ],
+      "entity": "Central Kiribati",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "T31 Central Kiribati",
+      "group": "T"
+    },
+    {
+      "sequence": 241,
+      "prefixes": [
+        "T32"
+      ],
+      "entity": "East Kiribati",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "T32 East Kiribati",
+      "group": "T"
+    },
+    {
+      "sequence": 242,
+      "prefixes": [
+        "T33"
+      ],
+      "entity": "Banaba",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "T33 Banaba",
+      "group": "T"
+    },
+    {
+      "sequence": 243,
+      "prefixes": [
+        "T4"
+      ],
+      "entity": "Cuba",
+      "cross_references": [
+        "CO"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "T4 Cuba CO",
+      "group": "T"
+    },
+    {
+      "sequence": 244,
+      "prefixes": [
+        "T5"
+      ],
+      "entity": "Somalia",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "T5 Somalia",
+      "group": "T"
+    },
+    {
+      "sequence": 245,
+      "prefixes": [
+        "T6"
+      ],
+      "entity": "Afghanistan",
+      "cross_references": [
+        "YA"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "T6 Afghanistan YA",
+      "group": "T"
+    },
+    {
+      "sequence": 246,
+      "prefixes": [
+        "T7"
+      ],
+      "entity": "San Marino",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "T7 San Marino",
+      "group": "T"
+    },
+    {
+      "sequence": 247,
+      "prefixes": [
+        "T9"
+      ],
+      "entity": "Bosnia-Herzegovina (now",
+      "cross_references": [
+        "E7"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "T9 Bosnia-Herzegovina (now E7)",
+      "group": "T"
+    },
+    {
+      "sequence": 248,
+      "prefixes": [
+        "TA"
+      ],
+      "entity": "Turkey",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "TA Turkey",
+      "group": "T"
+    },
+    {
+      "sequence": 249,
+      "prefixes": [
+        "TD"
+      ],
+      "entity": "Guatemala",
+      "cross_references": [
+        "TG"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "TD Guatemala TG",
+      "group": "T"
+    },
+    {
+      "sequence": 250,
+      "prefixes": [
+        "TE"
+      ],
+      "entity": "Costa Rica",
+      "cross_references": [
+        "TI"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "TE Costa Rica TI",
+      "group": "T"
+    },
+    {
+      "sequence": 251,
+      "prefixes": [
+        "TF"
+      ],
+      "entity": "Iceland",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "TF Iceland",
+      "group": "T"
+    },
+    {
+      "sequence": 252,
+      "prefixes": [
+        "TG"
+      ],
+      "entity": "Guatemala",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "TG Guatemala",
+      "group": "T"
+    },
+    {
+      "sequence": 253,
+      "prefixes": [
+        "TI"
+      ],
+      "entity": "Costa Rica",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "TI Costa Rica",
+      "group": "T"
+    },
+    {
+      "sequence": 254,
+      "prefixes": [
+        "TI9"
+      ],
+      "entity": "Cocos I.",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "TI9 Cocos I.",
+      "group": "T"
+    },
+    {
+      "sequence": 255,
+      "prefixes": [
+        "TJ"
+      ],
+      "entity": "Cameroon",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "TJ Cameroon",
+      "group": "T"
+    },
+    {
+      "sequence": 256,
+      "prefixes": [
+        "TK"
+      ],
+      "entity": "Corsica",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "TK Corsica",
+      "group": "T"
+    },
+    {
+      "sequence": 257,
+      "prefixes": [
+        "TL"
+      ],
+      "entity": "Central African Republic",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "TL Central African Republic",
+      "group": "T"
+    },
+    {
+      "sequence": 258,
+      "prefixes": [
+        "TM"
+      ],
+      "entity": "France including overseas Territories and Departments",
+      "cross_references": [
+        "F"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "TM France including overseas Territories and Departments F",
+      "group": "T"
+    },
+    {
+      "sequence": 259,
+      "prefixes": [
+        "TN"
+      ],
+      "entity": "Congo",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "TN Congo",
+      "group": "T"
+    },
+    {
+      "sequence": 260,
+      "prefixes": [
+        "TO"
+      ],
+      "entity": "France including overseas Territories and Departments",
+      "cross_references": [
+        "FG",
+        "FJ",
+        "FM",
+        "FP",
+        "FR",
+        "FS",
+        "FY"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "TO France including overseas Territories and Departments FG FJ FM FP FR FS FY",
+      "group": "T"
+    },
+    {
+      "sequence": 261,
+      "prefixes": [
+        "TP"
+      ],
+      "entity": "Council of Europe-Strasbourg",
+      "cross_references": [
+        "F"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "TP Council of Europe-Strasbourg F",
+      "group": "T"
+    },
+    {
+      "sequence": 262,
+      "prefixes": [
+        "TR"
+      ],
+      "entity": "Gabon",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "TR Gabon",
+      "group": "T"
+    },
+    {
+      "sequence": 263,
+      "prefixes": [
+        "TT"
+      ],
+      "entity": "Chad",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "TT Chad",
+      "group": "T"
+    },
+    {
+      "sequence": 264,
+      "prefixes": [
+        "TU"
+      ],
+      "entity": "Cote d’Ivoire",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "TU Cote d’Ivoire",
+      "group": "T"
+    },
+    {
+      "sequence": 265,
+      "prefixes": [
+        "TX"
+      ],
+      "entity": "France including overseas Territories and Departments",
+      "cross_references": [
+        "FK",
+        "FO",
+        "FW"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "TX France including overseas Territories and Departments FK FO FW",
+      "group": "T"
+    },
+    {
+      "sequence": 266,
+      "prefixes": [
+        "TY"
+      ],
+      "entity": "Benin",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "TY Benin",
+      "group": "T"
+    },
+    {
+      "sequence": 267,
+      "prefixes": [
+        "TZ"
+      ],
+      "entity": "Mali",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "TZ Mali",
+      "group": "T"
+    },
+    {
+      "sequence": 268,
+      "prefixes": [
+        "UA",
+        "U",
+        "UA",
+        "UE",
+        "1",
+        "3",
+        "4",
+        "6"
+      ],
+      "entity": "European Russia",
+      "cross_references": [],
+      "status_note": "listed_but_itu_1x_not_authorised_note_applies",
+      "raw_entry": "UA U UA UE 1 3 4 6 European Russia",
+      "group": "U"
+    },
+    {
+      "sequence": 269,
+      "prefixes": [
+        "UA2",
+        "U",
+        "UA",
+        "UE",
+        "2"
+      ],
+      "entity": "Kaliningrad",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "UA2 U UA UE 2 Kaliningrad",
+      "group": "U"
+    },
+    {
+      "sequence": 270,
+      "prefixes": [
+        "UA9",
+        "U",
+        "UA",
+        "UE",
+        "8-0"
+      ],
+      "entity": "Asiatic Russia",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "UA9 U UA UE 8-0 Asiatic Russia",
+      "group": "U"
+    },
+    {
+      "sequence": 271,
+      "prefixes": [
+        "UK",
+        "U8",
+        "UJ",
+        "UK7-9",
+        "UM"
+      ],
+      "entity": "Uzbekistan",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "UK U8 UJ UK7-9 UM Uzbekistan",
+      "group": "U"
+    },
+    {
+      "sequence": 272,
+      "prefixes": [
+        "UN",
+        "UN1-0",
+        "UP",
+        "UQ"
+      ],
+      "entity": "Kazakhstan",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "UN UN1-0 UP UQ Kazakhstan",
+      "group": "U"
+    },
+    {
+      "sequence": 273,
+      "prefixes": [
+        "UR",
+        "US-UZ"
+      ],
+      "entity": "Ukraine",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "UR US-UZ Ukraine",
+      "group": "U"
+    },
+    {
+      "sequence": 274,
+      "prefixes": [
+        "V2"
+      ],
+      "entity": "Antigua and Barbuda",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "V2 Antigua and Barbuda",
+      "group": "V"
+    },
+    {
+      "sequence": 275,
+      "prefixes": [
+        "V3"
+      ],
+      "entity": "Belize",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "V3 Belize",
+      "group": "V"
+    },
+    {
+      "sequence": 276,
+      "prefixes": [
+        "V4"
+      ],
+      "entity": "Federation of St Kitts and Nevis",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "V4 Federation of St Kitts and Nevis",
+      "group": "V"
+    },
+    {
+      "sequence": 277,
+      "prefixes": [
+        "V5"
+      ],
+      "entity": "Namibia",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "V5 Namibia",
+      "group": "V"
+    },
+    {
+      "sequence": 278,
+      "prefixes": [
+        "V6"
+      ],
+      "entity": "Micronesia",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "V6 Micronesia",
+      "group": "V"
+    },
+    {
+      "sequence": 279,
+      "prefixes": [
+        "V7"
+      ],
+      "entity": "Marshall Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "V7 Marshall Is",
+      "group": "V"
+    },
+    {
+      "sequence": 280,
+      "prefixes": [
+        "V8"
+      ],
+      "entity": "Brunei Darussalam",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "V8 Brunei Darussalam",
+      "group": "V"
+    },
+    {
+      "sequence": 281,
+      "prefixes": [
+        "V9"
+      ],
+      "entity": "Vendaland",
+      "cross_references": [
+        "ZS"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "V9 Vendaland ZS",
+      "group": "V"
+    },
+    {
+      "sequence": 282,
+      "prefixes": [
+        "VE",
+        "VA-VG"
+      ],
+      "entity": "Canada",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "VE VA-VG Canada",
+      "group": "V"
+    },
+    {
+      "sequence": 283,
+      "prefixes": [
+        "VE0"
+      ],
+      "entity": "Canadian /MM Stations",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "VE0 Canadian /MM Stations",
+      "group": "V"
+    },
+    {
+      "sequence": 284,
+      "prefixes": [
+        "VK",
+        "VI"
+      ],
+      "entity": "Australia",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "VK VI Australia",
+      "group": "V"
+    },
+    {
+      "sequence": 285,
+      "prefixes": [
+        "VK9C"
+      ],
+      "entity": "Cocos Keeling Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "VK9C Cocos Keeling Is",
+      "group": "V"
+    },
+    {
+      "sequence": 286,
+      "prefixes": [
+        "VK9L"
+      ],
+      "entity": "Lord Howe I.",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "VK9L Lord Howe I.",
+      "group": "V"
+    },
+    {
+      "sequence": 287,
+      "prefixes": [
+        "VK9M"
+      ],
+      "entity": "Mellish Reef",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "VK9M Mellish Reef",
+      "group": "V"
+    },
+    {
+      "sequence": 288,
+      "prefixes": [
+        "VK9N"
+      ],
+      "entity": "Norfolk I.",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "VK9N Norfolk I.",
+      "group": "V"
+    },
+    {
+      "sequence": 289,
+      "prefixes": [
+        "VK9W"
+      ],
+      "entity": "Willis Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "VK9W Willis Is",
+      "group": "V"
+    },
+    {
+      "sequence": 290,
+      "prefixes": [
+        "VK9X"
+      ],
+      "entity": "Christmas I.",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "VK9X Christmas I.",
+      "group": "V"
+    },
+    {
+      "sequence": 291,
+      "prefixes": [
+        "VK0"
+      ],
+      "entity": "Heard I.",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "VK0 Heard I.",
+      "group": "V"
+    },
+    {
+      "sequence": 292,
+      "prefixes": [
+        "VK0"
+      ],
+      "entity": "Macquarie I.",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "VK0 Macquarie I.",
+      "group": "V"
+    },
+    {
+      "sequence": 293,
+      "prefixes": [
+        "VO1",
+        "VO3",
+        "5",
+        "7",
+        "9"
+      ],
+      "entity": "Newfoundland",
+      "cross_references": [
+        "VE"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "VO1 VO3 5 7 9 Newfoundland VE",
+      "group": "V"
+    },
+    {
+      "sequence": 294,
+      "prefixes": [
+        "VO2",
+        "VO4",
+        "6",
+        "8",
+        "0"
+      ],
+      "entity": "Labrador",
+      "cross_references": [
+        "VE"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "VO2 VO4 6 8 0 Labrador VE",
+      "group": "V"
+    },
+    {
+      "sequence": 295,
+      "prefixes": [
+        "VP2E"
+      ],
+      "entity": "Anguilla",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "VP2E Anguilla",
+      "group": "V"
+    },
+    {
+      "sequence": 296,
+      "prefixes": [
+        "VP2M"
+      ],
+      "entity": "Montserrat",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "VP2M Montserrat",
+      "group": "V"
+    },
+    {
+      "sequence": 297,
+      "prefixes": [
+        "VP2V"
+      ],
+      "entity": "British Virgin Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "VP2V British Virgin Is",
+      "group": "V"
+    },
+    {
+      "sequence": 298,
+      "prefixes": [
+        "VP5"
+      ],
+      "entity": "Turks and Caicos Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "VP5 Turks and Caicos Is",
+      "group": "V"
+    },
+    {
+      "sequence": 299,
+      "prefixes": [
+        "VP6"
+      ],
+      "entity": "Pitcairn Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "VP6 Pitcairn Is",
+      "group": "V"
+    },
+    {
+      "sequence": 300,
+      "prefixes": [
+        "VP8"
+      ],
+      "entity": "Antarctica",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "VP8 Antarctica",
+      "group": "V"
+    },
+    {
+      "sequence": 301,
+      "prefixes": [
+        "VP8"
+      ],
+      "entity": "Falkland Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "VP8 Falkland Is",
+      "group": "V"
+    },
+    {
+      "sequence": 302,
+      "prefixes": [
+        "VP8"
+      ],
+      "entity": "South Georgia",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "VP8 South Georgia",
+      "group": "V"
+    },
+    {
+      "sequence": 303,
+      "prefixes": [
+        "VP8",
+        "AZ1",
+        "5",
+        "ED0",
+        "L"
+      ],
+      "entity": "South Orkney Is UnZx",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "VP8 AZ1 5 ED0 L South Orkney Is UnZx",
+      "group": "V",
+      "notes": [
+        "The source text contains the standalone fragment \"UnZx\" in the South Shetland Islands entry; it has been preserved in raw_entry and merged with the surrounding logical entry."
+      ]
+    },
+    {
+      "sequence": 304,
+      "prefixes": [
+        "VP8"
+      ],
+      "entity": "South Sandwich Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "VP8 South Sandwich Is",
+      "group": "V"
+    },
+    {
+      "sequence": 305,
+      "prefixes": [
+        "VP8",
+        "CE9",
+        "CX0",
+        "ED0"
+      ],
+      "entity": "South Shetland Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "VP8 CE9 CX0 ED0 South Shetland Is",
+      "group": "V"
+    },
+    {
+      "sequence": 306,
+      "prefixes": [
+        "HF0",
+        "HL5"
+      ],
+      "entity": "LUnZx South Shetland Is cont.",
+      "cross_references": [
+        "ZX0",
+        "4K1"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "HF0 HL5 LUnZx South Shetland Is cont. ZX0 4K1",
+      "group": "H",
+      "notes": [
+        "The source text contains the standalone fragment \"UnZx\" in the South Shetland Islands entry; it has been preserved in raw_entry and merged with the surrounding logical entry."
+      ]
+    },
+    {
+      "sequence": 307,
+      "prefixes": [
+        "VP9"
+      ],
+      "entity": "Bermuda",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "VP9 Bermuda",
+      "group": "V"
+    },
+    {
+      "sequence": 308,
+      "prefixes": [
+        "VQ9"
+      ],
+      "entity": "Chagos Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "VQ9 Chagos Is",
+      "group": "V"
+    },
+    {
+      "sequence": 309,
+      "prefixes": [
+        "VR2"
+      ],
+      "entity": "Special Administrative Region of Hong Kong",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "VR2 Special Administrative Region of Hong Kong",
+      "group": "V"
+    },
+    {
+      "sequence": 310,
+      "prefixes": [
+        "VU"
+      ],
+      "entity": "India",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "VU India",
+      "group": "V"
+    },
+    {
+      "sequence": 311,
+      "prefixes": [
+        "VU"
+      ],
+      "entity": "Lakshadweep",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "VU Lakshadweep",
+      "group": "V"
+    },
+    {
+      "sequence": 312,
+      "prefixes": [
+        "VU"
+      ],
+      "entity": "Andaman Is and Nicobar Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "VU Andaman Is and Nicobar Is",
+      "group": "V"
+    },
+    {
+      "sequence": 313,
+      "prefixes": [
+        "VX",
+        "VY"
+      ],
+      "entity": "Canada",
+      "cross_references": [
+        "VE"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "VX VY Canada VE",
+      "group": "V"
+    },
+    {
+      "sequence": 314,
+      "prefixes": [
+        "VY1"
+      ],
+      "entity": "Yukon Territory",
+      "cross_references": [
+        "VE"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "VY1 Yukon Territory VE",
+      "group": "V"
+    },
+    {
+      "sequence": 315,
+      "prefixes": [
+        "VY2"
+      ],
+      "entity": "Prince Edward I.",
+      "cross_references": [
+        "VE"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "VY2 Prince Edward I. VE",
+      "group": "V"
+    },
+    {
+      "sequence": 316,
+      "prefixes": [
+        "W",
+        "WA-WG",
+        "WI-WK"
+      ],
+      "entity": "USA",
+      "cross_references": [
+        "WM-WO",
+        "WQ-WZ"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "W WA-WG WI-WK USA WM-WO WQ-WZ",
+      "group": "W"
+    },
+    {
+      "sequence": 317,
+      "prefixes": [
+        "WH1-WH0",
+        "US"
+      ],
+      "entity": "Pacific Islands",
+      "cross_references": [
+        "KH1-KH0"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "WH1-WH0 US Pacific Islands KH1-KH0",
+      "group": "W"
+    },
+    {
+      "sequence": 318,
+      "prefixes": [
+        "WL"
+      ],
+      "entity": "Alaska",
+      "cross_references": [
+        "KL"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "WL Alaska KL",
+      "group": "W"
+    },
+    {
+      "sequence": 319,
+      "prefixes": [
+        "WP1-WP5",
+        "US"
+      ],
+      "entity": "Caribbean Islands",
+      "cross_references": [
+        "KP1-KP5"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "WP1-WP5 US Caribbean Islands KP1-KP5",
+      "group": "W"
+    },
+    {
+      "sequence": 320,
+      "prefixes": [
+        "XE",
+        "XB-XH"
+      ],
+      "entity": "Mexico",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "XE XB-XH Mexico",
+      "group": "X"
+    },
+    {
+      "sequence": 321,
+      "prefixes": [
+        "XF4"
+      ],
+      "entity": "Revilla Gigedo Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "XF4 Revilla Gigedo Is",
+      "group": "X"
+    },
+    {
+      "sequence": 322,
+      "prefixes": [
+        "XJ-XO"
+      ],
+      "entity": "Canada",
+      "cross_references": [
+        "VE"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "XJ-XO Canada VE",
+      "group": "X"
+    },
+    {
+      "sequence": 323,
+      "prefixes": [
+        "XQ",
+        "XR"
+      ],
+      "entity": "Chile and Islands",
+      "cross_references": [
+        "CE",
+        "CE9",
+        "CE0"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "XQ XR Chile and Islands CE CE9 CE0",
+      "group": "X"
+    },
+    {
+      "sequence": 324,
+      "prefixes": [
+        "XT"
+      ],
+      "entity": "Burkina Faso",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "XT Burkina Faso",
+      "group": "X"
+    },
+    {
+      "sequence": 325,
+      "prefixes": [
+        "XU"
+      ],
+      "entity": "Cambodia",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "XU Cambodia",
+      "group": "X"
+    },
+    {
+      "sequence": 326,
+      "prefixes": [
+        "XV"
+      ],
+      "entity": "Vietnam",
+      "cross_references": [
+        "3W"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "XV Vietnam 3W",
+      "group": "X"
+    },
+    {
+      "sequence": 327,
+      "prefixes": [
+        "XW"
+      ],
+      "entity": "Lao Peoples Democratic Republic",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "XW Lao Peoples Democratic Republic",
+      "group": "X"
+    },
+    {
+      "sequence": 328,
+      "prefixes": [
+        "XX"
+      ],
+      "entity": "China",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "XX China",
+      "group": "X"
+    },
+    {
+      "sequence": 329,
+      "prefixes": [
+        "XX9"
+      ],
+      "entity": "Macao",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "XX9 Macao",
+      "group": "X"
+    },
+    {
+      "sequence": 330,
+      "prefixes": [
+        "XY",
+        "XZ"
+      ],
+      "entity": "Myanmar",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "XY XZ Myanmar",
+      "group": "X"
+    },
+    {
+      "sequence": 331,
+      "prefixes": [
+        "XZ5",
+        "XZ9"
+      ],
+      "entity": "Karen State",
+      "cross_references": [
+        "XZ"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "XZ5 XZ9 Karen State XZ",
+      "group": "X"
+    },
+    {
+      "sequence": 332,
+      "prefixes": [
+        "YA"
+      ],
+      "entity": "Republic of Afghanistan",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "YA Republic of Afghanistan",
+      "group": "Y"
+    },
+    {
+      "sequence": 333,
+      "prefixes": [
+        "YB",
+        "YC",
+        "YE-YH"
+      ],
+      "entity": "Indonesia",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "YB YC YE-YH Indonesia",
+      "group": "Y"
+    },
+    {
+      "sequence": 334,
+      "prefixes": [
+        "YI"
+      ],
+      "entity": "Iraq",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "YI Iraq",
+      "group": "Y"
+    },
+    {
+      "sequence": 335,
+      "prefixes": [
+        "YJ"
+      ],
+      "entity": "Vanuatu",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "YJ Vanuatu",
+      "group": "Y"
+    },
+    {
+      "sequence": 336,
+      "prefixes": [
+        "YK"
+      ],
+      "entity": "Syria",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "YK Syria",
+      "group": "Y"
+    },
+    {
+      "sequence": 337,
+      "prefixes": [
+        "YL"
+      ],
+      "entity": "Latvia",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "YL Latvia",
+      "group": "Y"
+    },
+    {
+      "sequence": 338,
+      "prefixes": [
+        "YM"
+      ],
+      "entity": "Turkey",
+      "cross_references": [
+        "TA"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "YM Turkey TA",
+      "group": "Y"
+    },
+    {
+      "sequence": 339,
+      "prefixes": [
+        "YN"
+      ],
+      "entity": "Nicaragua",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "YN Nicaragua",
+      "group": "Y"
+    },
+    {
+      "sequence": 340,
+      "prefixes": [
+        "YO",
+        "YP-YR"
+      ],
+      "entity": "Romania",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "YO YP-YR Romania",
+      "group": "Y"
+    },
+    {
+      "sequence": 341,
+      "prefixes": [
+        "YS"
+      ],
+      "entity": "El Salvador",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "YS El Salvador",
+      "group": "Y"
+    },
+    {
+      "sequence": 342,
+      "prefixes": [
+        "YU",
+        "YT"
+      ],
+      "entity": "Serbia (ex Yugoslavia)",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "YU YT Serbia (ex Yugoslavia)",
+      "group": "Y"
+    },
+    {
+      "sequence": 343,
+      "prefixes": [
+        "YV",
+        "YW-YY"
+      ],
+      "entity": "Venezuela",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "YV YW-YY Venezuela",
+      "group": "Y"
+    },
+    {
+      "sequence": 344,
+      "prefixes": [
+        "YV0"
+      ],
+      "entity": "Aves I.",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "YV0 Aves I.",
+      "group": "Y"
+    },
+    {
+      "sequence": 345,
+      "prefixes": [
+        "YZ"
+      ],
+      "entity": "Yugoslavia",
+      "cross_references": [
+        "YU"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "YZ Yugoslavia YU",
+      "group": "Y"
+    },
+    {
+      "sequence": 346,
+      "prefixes": [
+        "Z2"
+      ],
+      "entity": "Zimbabwe",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "Z2 Zimbabwe",
+      "group": "Z"
+    },
+    {
+      "sequence": 347,
+      "prefixes": [
+        "Z3"
+      ],
+      "entity": "North Macedonia",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "Z3 North Macedonia",
+      "group": "Z"
+    },
+    {
+      "sequence": 348,
+      "prefixes": [
+        "Z6"
+      ],
+      "entity": "Kosovo",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "Z6 Kosovo",
+      "group": "Z"
+    },
+    {
+      "sequence": 349,
+      "prefixes": [
+        "Z8"
+      ],
+      "entity": "South Sudan",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "Z8 South Sudan",
+      "group": "Z"
+    },
+    {
+      "sequence": 350,
+      "prefixes": [
+        "ZA"
+      ],
+      "entity": "Albania",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "ZA Albania",
+      "group": "Z"
+    },
+    {
+      "sequence": 351,
+      "prefixes": [
+        "ZB",
+        "ZG"
+      ],
+      "entity": "Gibraltar",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "ZB ZG Gibraltar",
+      "group": "Z"
+    },
+    {
+      "sequence": 352,
+      "prefixes": [
+        "ZC",
+        "UK"
+      ],
+      "entity": "Sovereign Bases on Cyprus-Akrotiri and Dhekelia",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "ZC UK Sovereign Bases on Cyprus-Akrotiri and Dhekelia",
+      "group": "Z"
+    },
+    {
+      "sequence": 353,
+      "prefixes": [
+        "ZD7"
+      ],
+      "entity": "St Helena",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "ZD7 St Helena",
+      "group": "Z"
+    },
+    {
+      "sequence": 354,
+      "prefixes": [
+        "ZD8"
+      ],
+      "entity": "Ascension I.",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "ZD8 Ascension I.",
+      "group": "Z"
+    },
+    {
+      "sequence": 355,
+      "prefixes": [
+        "ZD9"
+      ],
+      "entity": "Tristan da Cunha and Gough I.",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "ZD9 Tristan da Cunha and Gough I.",
+      "group": "Z"
+    },
+    {
+      "sequence": 356,
+      "prefixes": [
+        "ZF"
+      ],
+      "entity": "Cayman Islands",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "ZF Cayman Islands",
+      "group": "Z"
+    },
+    {
+      "sequence": 357,
+      "prefixes": [
+        "ZK1"
+      ],
+      "entity": "South Cook Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "ZK1 South Cook Is",
+      "group": "Z"
+    },
+    {
+      "sequence": 358,
+      "prefixes": [
+        "ZK1"
+      ],
+      "entity": "Northern Cook Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "ZK1 Northern Cook Is",
+      "group": "Z"
+    },
+    {
+      "sequence": 359,
+      "prefixes": [
+        "ZK2",
+        "ZK9"
+      ],
+      "entity": "Niue",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "ZK2 ZK9 Niue",
+      "group": "Z"
+    },
+    {
+      "sequence": 360,
+      "prefixes": [
+        "ZK3"
+      ],
+      "entity": "Tokelau Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "ZK3 Tokelau Is",
+      "group": "Z"
+    },
+    {
+      "sequence": 361,
+      "prefixes": [
+        "ZL"
+      ],
+      "entity": "New Zealand",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "ZL New Zealand",
+      "group": "Z"
+    },
+    {
+      "sequence": 362,
+      "prefixes": [
+        "ZL7"
+      ],
+      "entity": "Chatham Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "ZL7 Chatham Is",
+      "group": "Z"
+    },
+    {
+      "sequence": 363,
+      "prefixes": [
+        "ZL8"
+      ],
+      "entity": "Kermadec Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "ZL8 Kermadec Is",
+      "group": "Z"
+    },
+    {
+      "sequence": 364,
+      "prefixes": [
+        "ZL9"
+      ],
+      "entity": "Auckland I. and Campbell I.",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "ZL9 Auckland I. and Campbell I.",
+      "group": "Z"
+    },
+    {
+      "sequence": 365,
+      "prefixes": [
+        "ZM"
+      ],
+      "entity": "New Zealand and Islands",
+      "cross_references": [
+        "ZL",
+        "ZL7",
+        "ZL8",
+        "ZL9"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "ZM New Zealand and Islands ZL ZL7 ZL8 ZL9",
+      "group": "Z"
+    },
+    {
+      "sequence": 366,
+      "prefixes": [
+        "ZP"
+      ],
+      "entity": "Paraguay",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "ZP Paraguay",
+      "group": "Z"
+    },
+    {
+      "sequence": 367,
+      "prefixes": [
+        "ZS",
+        "ZR",
+        "ZU"
+      ],
+      "entity": "Republic of South Africa",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "ZS ZR ZU Republic of South Africa",
+      "group": "Z"
+    },
+    {
+      "sequence": 368,
+      "prefixes": [
+        "ZS8"
+      ],
+      "entity": "Prince Edward I. and Marion I.",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "ZS8 Prince Edward I. and Marion I.",
+      "group": "Z"
+    },
+    {
+      "sequence": 369,
+      "prefixes": [
+        "ZV-ZZ"
+      ],
+      "entity": "Brazil and Islands",
+      "cross_references": [
+        "PY",
+        "PY0"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "ZV-ZZ Brazil and Islands PY PY0",
+      "group": "Z"
+    },
+    {
+      "sequence": 370,
+      "prefixes": [
+        "1A0"
+      ],
+      "entity": "Sovereign Military Order of Malta (Rome, Italy)",
+      "cross_references": [],
+      "status_note": "listed_but_itu_1x_not_authorised_note_applies",
+      "raw_entry": "1A0 Sovereign Military Order of Malta (Rome, Italy)",
+      "group": "1"
+    },
+    {
+      "sequence": 371,
+      "prefixes": [
+        "1C"
+      ],
+      "entity": "Chechnya Rep. (Russian Federation)",
+      "cross_references": [],
+      "status_note": "listed_but_itu_1x_not_authorised_note_applies",
+      "raw_entry": "1C Chechnya Rep. (Russian Federation)",
+      "group": "1"
+    },
+    {
+      "sequence": 372,
+      "prefixes": [
+        "1P"
+      ],
+      "entity": "Seborga Principato (Italy)",
+      "cross_references": [],
+      "status_note": "listed_but_itu_1x_not_authorised_note_applies",
+      "raw_entry": "1P Seborga Principato (Italy)",
+      "group": "1"
+    },
+    {
+      "sequence": 373,
+      "prefixes": [
+        "1S"
+      ],
+      "entity": "Spratly Archipelago",
+      "cross_references": [
+        "9M0"
+      ],
+      "status_note": "listed_but_itu_1x_not_authorised_note_applies",
+      "raw_entry": "1S Spratly Archipelago 9M0",
+      "group": "1"
+    },
+    {
+      "sequence": 374,
+      "prefixes": [
+        "2D"
+      ],
+      "entity": "Isle of Man",
+      "cross_references": [
+        "GD"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "2D Isle of Man GD",
+      "group": "2"
+    },
+    {
+      "sequence": 375,
+      "prefixes": [
+        "2E"
+      ],
+      "entity": "England",
+      "cross_references": [
+        "G"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "2E England G",
+      "group": "2"
+    },
+    {
+      "sequence": 376,
+      "prefixes": [
+        "2I"
+      ],
+      "entity": "Northern Ireland",
+      "cross_references": [
+        "GI"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "2I Northern Ireland GI",
+      "group": "2"
+    },
+    {
+      "sequence": 377,
+      "prefixes": [
+        "2J"
+      ],
+      "entity": "Jersey",
+      "cross_references": [
+        "GJ"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "2J Jersey GJ",
+      "group": "2"
+    },
+    {
+      "sequence": 378,
+      "prefixes": [
+        "2M"
+      ],
+      "entity": "Scotland",
+      "cross_references": [
+        "GM"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "2M Scotland GM",
+      "group": "2"
+    },
+    {
+      "sequence": 379,
+      "prefixes": [
+        "2U"
+      ],
+      "entity": "Guernsey and Dependencies",
+      "cross_references": [
+        "GU"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "2U Guernsey and Dependencies GU",
+      "group": "2"
+    },
+    {
+      "sequence": 380,
+      "prefixes": [
+        "2W"
+      ],
+      "entity": "Wales",
+      "cross_references": [
+        "GW"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "2W Wales GW",
+      "group": "2"
+    },
+    {
+      "sequence": 381,
+      "prefixes": [
+        "3A"
+      ],
+      "entity": "Monaco",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "3A Monaco",
+      "group": "3"
+    },
+    {
+      "sequence": 382,
+      "prefixes": [
+        "3B6"
+      ],
+      "entity": "Agalega Is",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "3B6 Agalega Is",
+      "group": "3"
+    },
+    {
+      "sequence": 383,
+      "prefixes": [
+        "3B7"
+      ],
+      "entity": "Cargados Carajos (St Brandon)",
+      "cross_references": [
+        "3B6"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "3B7 Cargados Carajos (St Brandon) 3B6",
+      "group": "3"
+    },
+    {
+      "sequence": 384,
+      "prefixes": [
+        "3B8"
+      ],
+      "entity": "Mauritius",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "3B8 Mauritius",
+      "group": "3"
+    },
+    {
+      "sequence": 385,
+      "prefixes": [
+        "3B9"
+      ],
+      "entity": "Rodriguez I.",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "3B9 Rodriguez I.",
+      "group": "3"
+    },
+    {
+      "sequence": 386,
+      "prefixes": [
+        "3C"
+      ],
+      "entity": "Equatorial Guinea",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "3C Equatorial Guinea",
+      "group": "3"
+    },
+    {
+      "sequence": 387,
+      "prefixes": [
+        "3C0"
+      ],
+      "entity": "Annobon I.",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "3C0 Annobon I.",
+      "group": "3"
+    },
+    {
+      "sequence": 388,
+      "prefixes": [
+        "3D2"
+      ],
+      "entity": "Republic of Fiji",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "3D2 Republic of Fiji",
+      "group": "3"
+    },
+    {
+      "sequence": 389,
+      "prefixes": [
+        "3D2"
+      ],
+      "entity": "Conway Reef",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "3D2 Conway Reef",
+      "group": "3"
+    },
+    {
+      "sequence": 390,
+      "prefixes": [
+        "3D2"
+      ],
+      "entity": "Rotuma I.",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "3D2 Rotuma I.",
+      "group": "3"
+    },
+    {
+      "sequence": 391,
+      "prefixes": [
+        "3DA0"
+      ],
+      "entity": "Eswatini (Swaziland)",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "3DA0 Eswatini (Swaziland)",
+      "group": "3"
+    },
+    {
+      "sequence": 392,
+      "prefixes": [
+        "3E-3F"
+      ],
+      "entity": "Panama",
+      "cross_references": [
+        "HP"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "3E-3F Panama HP",
+      "group": "3"
+    },
+    {
+      "sequence": 393,
+      "prefixes": [
+        "3G"
+      ],
+      "entity": "Chile and Islands",
+      "cross_references": [
+        "CE",
+        "CE9",
+        "CE0"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "3G Chile and Islands CE CE9 CE0",
+      "group": "3"
+    },
+    {
+      "sequence": 394,
+      "prefixes": [
+        "3V"
+      ],
+      "entity": "Tunisia",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "3V Tunisia",
+      "group": "3"
+    },
+    {
+      "sequence": 395,
+      "prefixes": [
+        "3W",
+        "XV"
+      ],
+      "entity": "Vietnam",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "3W XV Vietnam",
+      "group": "3"
+    },
+    {
+      "sequence": 396,
+      "prefixes": [
+        "3X"
+      ],
+      "entity": "Republic of Guinea",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "3X Republic of Guinea",
+      "group": "3"
+    },
+    {
+      "sequence": 397,
+      "prefixes": [
+        "3Y"
+      ],
+      "entity": "Bouvet I.",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "3Y Bouvet I.",
+      "group": "3"
+    },
+    {
+      "sequence": 398,
+      "prefixes": [
+        "3Y"
+      ],
+      "entity": "Peter I Island",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "3Y Peter I Island",
+      "group": "3"
+    },
+    {
+      "sequence": 399,
+      "prefixes": [
+        "3Z"
+      ],
+      "entity": "Poland",
+      "cross_references": [
+        "SP"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "3Z Poland SP",
+      "group": "3"
+    },
+    {
+      "sequence": 400,
+      "prefixes": [
+        "4A-4C"
+      ],
+      "entity": "Mexico and Islands",
+      "cross_references": [
+        "XE",
+        "XF4"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "4A-4C Mexico and Islands XE XF4",
+      "group": "4"
+    },
+    {
+      "sequence": 401,
+      "prefixes": [
+        "4D-4I"
+      ],
+      "entity": "Philippines",
+      "cross_references": [
+        "DU"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "4D-4I Philippines DU",
+      "group": "4"
+    },
+    {
+      "sequence": 402,
+      "prefixes": [
+        "4J",
+        "4K"
+      ],
+      "entity": "Azerbaijan",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "4J 4K Azerbaijan",
+      "group": "4"
+    },
+    {
+      "sequence": 403,
+      "prefixes": [
+        "4L"
+      ],
+      "entity": "Georgia",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "4L Georgia",
+      "group": "4"
+    },
+    {
+      "sequence": 404,
+      "prefixes": [
+        "4M"
+      ],
+      "entity": "Venezuela and Islands",
+      "cross_references": [
+        "YV",
+        "YV0"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "4M Venezuela and Islands YV YV0",
+      "group": "4"
+    },
+    {
+      "sequence": 405,
+      "prefixes": [
+        "4N1",
+        "6-0"
+      ],
+      "entity": "Yugoslavia",
+      "cross_references": [
+        "YU"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "4N1 6-0 Yugoslavia YU",
+      "group": "4"
+    },
+    {
+      "sequence": 406,
+      "prefixes": [
+        "4O"
+      ],
+      "entity": "Montenegro",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "4O Montenegro",
+      "group": "4"
+    },
+    {
+      "sequence": 407,
+      "prefixes": [
+        "4S"
+      ],
+      "entity": "Sri Lanka",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "4S Sri Lanka",
+      "group": "4"
+    },
+    {
+      "sequence": 408,
+      "prefixes": [
+        "4T"
+      ],
+      "entity": "Peru",
+      "cross_references": [
+        "OA"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "4T Peru OA",
+      "group": "4"
+    },
+    {
+      "sequence": 409,
+      "prefixes": [
+        "4U"
+      ],
+      "entity": "United Nations Organization",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "4U United Nations Organization",
+      "group": "4"
+    },
+    {
+      "sequence": 410,
+      "prefixes": [
+        "4U1ITU",
+        "4UnITU"
+      ],
+      "entity": "United Nations Geneva",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "4U1ITU 4UnITU United Nations Geneva",
+      "group": "4"
+    },
+    {
+      "sequence": 411,
+      "prefixes": [
+        "4U1SCO"
+      ],
+      "entity": "UNESCO, Paris",
+      "cross_references": [
+        "F"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "4U1SCO UNESCO, Paris F",
+      "group": "4"
+    },
+    {
+      "sequence": 412,
+      "prefixes": [
+        "4U1UN",
+        "4UnUN"
+      ],
+      "entity": "United Nations New York",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "4U1UN 4UnUN United Nations New York",
+      "group": "4"
+    },
+    {
+      "sequence": 413,
+      "prefixes": [
+        "4U1VIC"
+      ],
+      "entity": "United Nations Vienna",
+      "cross_references": [
+        "OE"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "4U1VIC United Nations Vienna OE",
+      "group": "4"
+    },
+    {
+      "sequence": 414,
+      "prefixes": [
+        "4U1WB"
+      ],
+      "entity": "World Bank Washington D.C.",
+      "cross_references": [
+        "W"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "4U1WB World Bank Washington D.C. W",
+      "group": "4"
+    },
+    {
+      "sequence": 415,
+      "prefixes": [
+        "4V"
+      ],
+      "entity": "Haiti",
+      "cross_references": [
+        "HH"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "4V Haiti HH",
+      "group": "4"
+    },
+    {
+      "sequence": 416,
+      "prefixes": [
+        "4W"
+      ],
+      "entity": "East Timor",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "4W East Timor",
+      "group": "4"
+    },
+    {
+      "sequence": 417,
+      "prefixes": [
+        "4X",
+        "4Z"
+      ],
+      "entity": "Israel",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "4X 4Z Israel",
+      "group": "4"
+    },
+    {
+      "sequence": 418,
+      "prefixes": [
+        "5A"
+      ],
+      "entity": "Libya",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "5A Libya",
+      "group": "5"
+    },
+    {
+      "sequence": 419,
+      "prefixes": [
+        "5B"
+      ],
+      "entity": "Cyprus",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "5B Cyprus",
+      "group": "5"
+    },
+    {
+      "sequence": 420,
+      "prefixes": [
+        "5C"
+      ],
+      "entity": "Morocco",
+      "cross_references": [
+        "CN"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "5C Morocco CN",
+      "group": "5"
+    },
+    {
+      "sequence": 421,
+      "prefixes": [
+        "5H"
+      ],
+      "entity": "Tanzania",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "5H Tanzania",
+      "group": "5"
+    },
+    {
+      "sequence": 422,
+      "prefixes": [
+        "5J",
+        "5K"
+      ],
+      "entity": "Colombia and Islands",
+      "cross_references": [
+        "HK",
+        "HK0"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "5J 5K Colombia and Islands HK HK0",
+      "group": "5"
+    },
+    {
+      "sequence": 423,
+      "prefixes": [
+        "5L"
+      ],
+      "entity": "Liberia",
+      "cross_references": [
+        "EL"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "5L Liberia EL",
+      "group": "5"
+    },
+    {
+      "sequence": 424,
+      "prefixes": [
+        "5N"
+      ],
+      "entity": "Nigeria",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "5N Nigeria",
+      "group": "5"
+    },
+    {
+      "sequence": 425,
+      "prefixes": [
+        "5P"
+      ],
+      "entity": "Denmark",
+      "cross_references": [
+        "OZ"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "5P Denmark OZ",
+      "group": "5"
+    },
+    {
+      "sequence": 426,
+      "prefixes": [
+        "5R"
+      ],
+      "entity": "Madagascar",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "5R Madagascar",
+      "group": "5"
+    },
+    {
+      "sequence": 427,
+      "prefixes": [
+        "5T"
+      ],
+      "entity": "Mauritania",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "5T Mauritania",
+      "group": "5"
+    },
+    {
+      "sequence": 428,
+      "prefixes": [
+        "5U"
+      ],
+      "entity": "Niger",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "5U Niger",
+      "group": "5"
+    },
+    {
+      "sequence": 429,
+      "prefixes": [
+        "5V"
+      ],
+      "entity": "Togo",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "5V Togo",
+      "group": "5"
+    },
+    {
+      "sequence": 430,
+      "prefixes": [
+        "5W"
+      ],
+      "entity": "Western Samoa",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "5W Western Samoa",
+      "group": "5"
+    },
+    {
+      "sequence": 431,
+      "prefixes": [
+        "5X"
+      ],
+      "entity": "Uganda",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "5X Uganda",
+      "group": "5"
+    },
+    {
+      "sequence": 432,
+      "prefixes": [
+        "5Y",
+        "5Z"
+      ],
+      "entity": "Kenya",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "5Y 5Z Kenya",
+      "group": "5"
+    },
+    {
+      "sequence": 433,
+      "prefixes": [
+        "6C"
+      ],
+      "entity": "Syria",
+      "cross_references": [
+        "YK"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "6C Syria YK",
+      "group": "6"
+    },
+    {
+      "sequence": 434,
+      "prefixes": [
+        "6D-6J"
+      ],
+      "entity": "Mexico and Islands",
+      "cross_references": [
+        "XE-XF4"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "6D-6J Mexico and Islands XE-XF4",
+      "group": "6"
+    },
+    {
+      "sequence": 435,
+      "prefixes": [
+        "6K",
+        "6L"
+      ],
+      "entity": "Republic of Korea",
+      "cross_references": [
+        "HL"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "6K 6L Republic of Korea HL",
+      "group": "6"
+    },
+    {
+      "sequence": 436,
+      "prefixes": [
+        "6O"
+      ],
+      "entity": "Somalia",
+      "cross_references": [
+        "T5"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "6O Somalia T5",
+      "group": "6"
+    },
+    {
+      "sequence": 437,
+      "prefixes": [
+        "6P"
+      ],
+      "entity": "Pakistan",
+      "cross_references": [
+        "AP"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "6P Pakistan AP",
+      "group": "6"
+    },
+    {
+      "sequence": 438,
+      "prefixes": [
+        "6T",
+        "6U"
+      ],
+      "entity": "Republic of the Sudan",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "6T 6U Republic of the Sudan",
+      "group": "6"
+    },
+    {
+      "sequence": 439,
+      "prefixes": [
+        "6W",
+        "6V"
+      ],
+      "entity": "Senegal",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "6W 6V Senegal",
+      "group": "6"
+    },
+    {
+      "sequence": 440,
+      "prefixes": [
+        "6Y"
+      ],
+      "entity": "Jamaica",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "6Y Jamaica",
+      "group": "6"
+    },
+    {
+      "sequence": 441,
+      "prefixes": [
+        "7J-7N"
+      ],
+      "entity": "Japan",
+      "cross_references": [
+        "JA"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "7J-7N Japan JA",
+      "group": "7"
+    },
+    {
+      "sequence": 442,
+      "prefixes": [
+        "7O"
+      ],
+      "entity": "Republic of Yemen",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "7O Republic of Yemen",
+      "group": "7"
+    },
+    {
+      "sequence": 443,
+      "prefixes": [
+        "7P"
+      ],
+      "entity": "Lesotho",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "7P Lesotho",
+      "group": "7"
+    },
+    {
+      "sequence": 444,
+      "prefixes": [
+        "7Q"
+      ],
+      "entity": "Malawi",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "7Q Malawi",
+      "group": "7"
+    },
+    {
+      "sequence": 445,
+      "prefixes": [
+        "7S"
+      ],
+      "entity": "Sweden",
+      "cross_references": [
+        "SM"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "7S Sweden SM",
+      "group": "7"
+    },
+    {
+      "sequence": 446,
+      "prefixes": [
+        "7X",
+        "7W"
+      ],
+      "entity": "Algeria",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "7X 7W Algeria",
+      "group": "7"
+    },
+    {
+      "sequence": 447,
+      "prefixes": [
+        "7Z"
+      ],
+      "entity": "Saudi Arabia",
+      "cross_references": [
+        "HZ"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "7Z Saudi Arabia HZ",
+      "group": "7"
+    },
+    {
+      "sequence": 448,
+      "prefixes": [
+        "8A",
+        "8B",
+        "8E",
+        "8I"
+      ],
+      "entity": "Indonesia",
+      "cross_references": [
+        "YB"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "8A 8B 8E 8I Indonesia YB",
+      "group": "8"
+    },
+    {
+      "sequence": 449,
+      "prefixes": [
+        "8J"
+      ],
+      "entity": "Japan",
+      "cross_references": [
+        "JA"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "8J Japan JA",
+      "group": "8"
+    },
+    {
+      "sequence": 450,
+      "prefixes": [
+        "8O"
+      ],
+      "entity": "Botswana",
+      "cross_references": [
+        "A2"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "8O Botswana A2",
+      "group": "8"
+    },
+    {
+      "sequence": 451,
+      "prefixes": [
+        "8P"
+      ],
+      "entity": "Barbados",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "8P Barbados",
+      "group": "8"
+    },
+    {
+      "sequence": 452,
+      "prefixes": [
+        "8Q"
+      ],
+      "entity": "Maldives",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "8Q Maldives",
+      "group": "8"
+    },
+    {
+      "sequence": 453,
+      "prefixes": [
+        "8R"
+      ],
+      "entity": "Guyana",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "8R Guyana",
+      "group": "8"
+    },
+    {
+      "sequence": 454,
+      "prefixes": [
+        "8S"
+      ],
+      "entity": "Sweden",
+      "cross_references": [
+        "SM"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "8S Sweden SM",
+      "group": "8"
+    },
+    {
+      "sequence": 455,
+      "prefixes": [
+        "9A"
+      ],
+      "entity": "Croatia",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "9A Croatia",
+      "group": "9"
+    },
+    {
+      "sequence": 456,
+      "prefixes": [
+        "9G"
+      ],
+      "entity": "Ghana",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "9G Ghana",
+      "group": "9"
+    },
+    {
+      "sequence": 457,
+      "prefixes": [
+        "9H"
+      ],
+      "entity": "Malta",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "9H Malta",
+      "group": "9"
+    },
+    {
+      "sequence": 458,
+      "prefixes": [
+        "9J",
+        "9I"
+      ],
+      "entity": "Zambia",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "9J 9I Zambia",
+      "group": "9"
+    },
+    {
+      "sequence": 459,
+      "prefixes": [
+        "9K"
+      ],
+      "entity": "Kuwait",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "9K Kuwait",
+      "group": "9"
+    },
+    {
+      "sequence": 460,
+      "prefixes": [
+        "9L"
+      ],
+      "entity": "Sierra Leone",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "9L Sierra Leone",
+      "group": "9"
+    },
+    {
+      "sequence": 461,
+      "prefixes": [
+        "9M2"
+      ],
+      "entity": "Malaya (Malaysia)",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "9M2 Malaya (Malaysia)",
+      "group": "9"
+    },
+    {
+      "sequence": 462,
+      "prefixes": [
+        "9M6"
+      ],
+      "entity": "Sabah (Malaysia)",
+      "cross_references": [
+        "9M8"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "9M6 Sabah (Malaysia) 9M8",
+      "group": "9"
+    },
+    {
+      "sequence": 463,
+      "prefixes": [
+        "9M8"
+      ],
+      "entity": "Sarawak (Malaysia)",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "9M8 Sarawak (Malaysia)",
+      "group": "9"
+    },
+    {
+      "sequence": 464,
+      "prefixes": [
+        "9M0",
+        "BV9S",
+        "1S",
+        "DU"
+      ],
+      "entity": "Spratly Archipelago",
+      "cross_references": [],
+      "status_note": "listed_but_itu_1x_not_authorised_note_applies",
+      "raw_entry": "9M0 BV9S 1S DU Spratly Archipelago",
+      "group": "9"
+    },
+    {
+      "sequence": 465,
+      "prefixes": [
+        "9N"
+      ],
+      "entity": "Nepal",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "9N Nepal",
+      "group": "9"
+    },
+    {
+      "sequence": 466,
+      "prefixes": [
+        "9Q",
+        "9R"
+      ],
+      "entity": "Democratic Republic of Congo",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "9Q 9R Democratic Republic of Congo",
+      "group": "9"
+    },
+    {
+      "sequence": 467,
+      "prefixes": [
+        "9U"
+      ],
+      "entity": "Burundi",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "9U Burundi",
+      "group": "9"
+    },
+    {
+      "sequence": 468,
+      "prefixes": [
+        "9V"
+      ],
+      "entity": "Singapore",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "9V Singapore",
+      "group": "9"
+    },
+    {
+      "sequence": 469,
+      "prefixes": [
+        "9W"
+      ],
+      "entity": "Malaysia (including Sabah & Sarawak)",
+      "cross_references": [
+        "9M2",
+        "8"
+      ],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "9W Malaysia (including Sabah & Sarawak) 9M2 8",
+      "group": "9"
+    },
+    {
+      "sequence": 470,
+      "prefixes": [
+        "9X"
+      ],
+      "entity": "Rwanda",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "9X Rwanda",
+      "group": "9"
+    },
+    {
+      "sequence": 471,
+      "prefixes": [
+        "9Y",
+        "9Z"
+      ],
+      "entity": "Trinidad and Tobago",
+      "cross_references": [],
+      "status_note": "recognised_or_listed",
+      "raw_entry": "9Y 9Z Trinidad and Tobago",
+      "group": "9"
+    }
+  ]
+}
